@@ -2,6 +2,17 @@
 import { useRef, useState } from 'react';
 import api from '../lib/api';
 
+// Starter prompts shown before the first question — cover the clause types
+// DocIQ auto-extracts, so they work well on most contracts.
+const RECOMMENDED_QUESTIONS = [
+  'What are the payment terms and when are invoices due?',
+  'How much notice is required to terminate for convenience?',
+  'What is the limitation of liability cap, and what is excluded from it?',
+  'Does the contract auto-renew? What is the opt-out notice window?',
+  'How long do confidentiality obligations survive termination?',
+  'Which state or jurisdiction governs this agreement?',
+];
+
 export default function ChatPanel({ workspaceId }) {
   const [turns, setTurns] = useState([]); // {question, result?}
   const [q, setQ] = useState('');
@@ -9,9 +20,9 @@ export default function ChatPanel({ workspaceId }) {
   const [openCite, setOpenCite] = useState(null); // citation object
   const scrollRef = useRef(null);
 
-  const ask = async () => {
-    if (!q.trim() || !workspaceId) return;
-    const question = q.trim();
+  const ask = async (override) => {
+    const question = (typeof override === 'string' ? override : q).trim();
+    if (!question || !workspaceId || busy) return;
     setQ('');
     setTurns((t) => [...t, { question }]);
     setBusy(true);
@@ -34,10 +45,27 @@ export default function ChatPanel({ workspaceId }) {
 
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto pr-1">
         {turns.length === 0 && (
-          <p className="text-sm text-slate-500">
-            Ask a natural-language question. Answers are grounded in retrieved passages and cite
-            their source page.
-          </p>
+          <div className="text-sm text-slate-500">
+            <p>
+              Ask a natural-language question. Answers are grounded in retrieved passages and cite
+              their source page.
+            </p>
+            <p className="mt-4 mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Recommended questions
+            </p>
+            <div className="flex flex-wrap gap-2">
+              {RECOMMENDED_QUESTIONS.map((rq) => (
+                <button
+                  key={rq}
+                  disabled={!workspaceId || busy}
+                  onClick={() => ask(rq)}
+                  className="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-left text-xs text-slate-700 transition hover:border-brand-400 hover:bg-brand-50 disabled:opacity-50"
+                >
+                  {rq}
+                </button>
+              ))}
+            </div>
+          </div>
         )}
         {turns.map((t, i) => (
           <div key={i} className="space-y-2">
@@ -66,7 +94,7 @@ export default function ChatPanel({ workspaceId }) {
           onChange={(e) => setQ(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && ask()}
         />
-        <button className="btn-primary" onClick={ask} disabled={!workspaceId || busy || !q.trim()}>
+        <button className="btn-primary" onClick={() => ask()} disabled={!workspaceId || busy || !q.trim()}>
           Ask
         </button>
       </div>
