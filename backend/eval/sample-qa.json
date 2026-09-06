@@ -1,0 +1,65 @@
+{
+  "document": "fixtures/sample-msa.txt",
+  "cases": [
+    {
+      "question": "What is the monthly fee?",
+      "expectedKeywords": ["8,000", "per month"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What are the payment terms / when are invoices due?",
+      "expectedKeywords": ["net 30", "invoice date"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What interest applies to late payments?",
+      "expectedKeywords": ["1.5%", "per month"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "How much notice is required to terminate for convenience?",
+      "expectedKeywords": ["ninety", "90", "written notice"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What is the cure period for a material breach?",
+      "expectedKeywords": ["thirty", "30", "cure"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What is the limitation of liability cap?",
+      "expectedKeywords": ["twelve", "12 months", "fees paid"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "Which claims are excluded from the liability cap?",
+      "expectedKeywords": ["indemnification", "confidentiality", "gross negligence"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "How long do confidentiality obligations survive after termination?",
+      "expectedKeywords": ["three", "3 years"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "Does the contract auto-renew, and what is the opt-out notice period?",
+      "expectedKeywords": ["automatically", "sixty", "60"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "Which state's law governs the agreement?",
+      "expectedKeywords": ["New York"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What is the data breach notification window?",
+      "expectedKeywords": ["72 hours"],
+      "expectAnswerable": true
+    },
+    {
+      "question": "What is the provider's PTO / vacation policy for employees?",
+      "expectedKeywords": [],
+      "expectAnswerable": false
+    }
+  ]
+}

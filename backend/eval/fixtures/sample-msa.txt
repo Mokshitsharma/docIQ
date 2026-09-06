@@ -1,0 +1,59 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement ("Agreement") is entered into as of March 1, 2025
+(the "Effective Date") by and between Northwind Analytics Inc., a Delaware
+corporation ("Provider"), and Cedar & Bloom LLP ("Client").
+
+1. TERM
+This Agreement begins on the Effective Date and continues for an initial term of
+twenty-four (24) months (the "Initial Term"). Thereafter it renews automatically
+for successive twelve (12) month periods unless either party gives written notice
+of non-renewal at least sixty (60) days before the end of the then-current term.
+
+2. FEES AND PAYMENT
+Client shall pay Provider a fixed fee of USD 8,000 per month. Provider will invoice
+Client monthly in advance. All invoices are due net 30 days from the invoice date.
+Undisputed amounts not paid within 30 days accrue interest at 1.5% per month.
+All fees are exclusive of applicable taxes.
+
+3. TERMINATION
+Either party may terminate this Agreement for convenience upon ninety (90) days'
+prior written notice. Either party may terminate immediately for cause if the other
+party materially breaches the Agreement and fails to cure such breach within
+thirty (30) days after receiving written notice describing the breach. Upon
+termination, Client shall pay Provider for all services performed through the
+termination date.
+
+4. LIMITATION OF LIABILITY
+Except for the excluded claims described below, each party's total aggregate
+liability arising out of or related to this Agreement shall not exceed the total
+fees paid or payable by Client to Provider in the twelve (12) months preceding the
+event giving rise to the claim. Neither party shall be liable for any indirect,
+incidental, special, consequential, or punitive damages. The foregoing limitations
+do not apply to: (a) a party's indemnification obligations; (b) breaches of
+confidentiality; or (c) a party's gross negligence or willful misconduct.
+
+5. CONFIDENTIALITY
+Each party agrees to protect the other party's Confidential Information using at
+least the same degree of care it uses for its own confidential information, and in
+no event less than a reasonable degree of care. These obligations survive for a
+period of three (3) years after termination of this Agreement, except that trade
+secrets remain protected for as long as they qualify as trade secrets under
+applicable law.
+
+6. INTELLECTUAL PROPERTY
+Provider retains all right, title, and interest in its pre-existing materials and
+tools. Upon full payment, Client owns the specific deliverables created for Client
+under a Statement of Work, excluding Provider's pre-existing materials, which are
+licensed to Client on a perpetual, non-exclusive basis.
+
+7. GOVERNING LAW
+This Agreement is governed by the laws of the State of New York, without regard to
+its conflict-of-laws principles. The parties consent to the exclusive jurisdiction
+of the state and federal courts located in New York County, New York.
+
+8. DATA PROTECTION
+Provider shall implement industry-standard technical and organizational measures to
+protect Client data, including encryption in transit and at rest. Provider shall
+notify Client without undue delay, and in any case within 72 hours, after becoming
+aware of a personal data breach affecting Client data.

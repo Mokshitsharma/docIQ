@@ -1,0 +1,48 @@
+### DocIQ API — quick manual smoke test (VS Code REST Client / IntelliJ HTTP)
+@base = http://localhost:4000
+
+### Health
+GET {{base}}/health
+
+### 1. Create a workspace
+# @name ws
+POST {{base}}/api/workspaces
+Content-Type: application/json
+
+{ "name": "Acme Legal" }
+
+### 2. Upload a document  (set workspaceId from the response above)
+POST {{base}}/api/documents/upload
+Content-Type: multipart/form-data; boundary=----b
+
+------b
+Content-Disposition: form-data; name="workspaceId"
+
+{{ws.response.body._id}}
+------b
+Content-Disposition: form-data; name="file"; filename="sample-msa.txt"
+Content-Type: text/plain
+
+< ./backend/eval/fixtures/sample-msa.txt
+------b--
+
+### 3. Poll status  (set the document id)
+GET {{base}}/api/documents/DOCUMENT_ID/status
+
+### 4. Ask a question
+POST {{base}}/api/query
+Content-Type: application/json
+
+{ "workspaceId": "{{ws.response.body._id}}", "question": "What is the termination notice period?" }
+
+### 5. Risk / clause summary
+GET {{base}}/api/documents/DOCUMENT_ID/risks
+
+### 6. Update dynamic settings
+PATCH {{base}}/api/workspaces/{{ws.response.body._id}}/settings
+Content-Type: application/json
+
+{ "topK": 8, "retrievalStrategy": "hybrid", "confidenceThreshold": 0.2 }
+
+### 7. Query history
+GET {{base}}/api/workspaces/{{ws.response.body._id}}/history

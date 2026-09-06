@@ -1,0 +1,26 @@
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - dociq_mongo:/data/db
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  chroma:
+    image: chromadb/chroma:0.5.5
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - dociq_chroma:/chroma/chroma
+
+volumes:
+  dociq_mongo:
+  dociq_chroma:
