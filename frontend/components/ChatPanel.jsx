@@ -45,27 +45,10 @@ export default function ChatPanel({ workspaceId }) {
 
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto pr-1">
         {turns.length === 0 && (
-          <div className="text-sm text-slate-500">
-            <p>
-              Ask a natural-language question. Answers are grounded in retrieved passages and cite
-              their source page.
-            </p>
-            <p className="mt-4 mb-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              Recommended questions
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {RECOMMENDED_QUESTIONS.map((rq) => (
-                <button
-                  key={rq}
-                  disabled={!workspaceId || busy}
-                  onClick={() => ask(rq)}
-                  className="rounded-full border border-slate-300 bg-white px-3 py-1.5 text-left text-xs text-slate-700 transition hover:border-brand-400 hover:bg-brand-50 disabled:opacity-50"
-                >
-                  {rq}
-                </button>
-              ))}
-            </div>
-          </div>
+          <p className="text-sm text-slate-500">
+            Ask a natural-language question, or pick a recommended one below. Answers are grounded in
+            retrieved passages and cite their source page.
+          </p>
         )}
         {turns.map((t, i) => (
           <div key={i} className="space-y-2">
@@ -85,7 +68,27 @@ export default function ChatPanel({ workspaceId }) {
         ))}
       </div>
 
-      <div className="mt-3 flex gap-2">
+      {/* Recommended questions — always available, above the input */}
+      <div className="mt-3 border-t border-slate-100 pt-3">
+        <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
+          Recommended questions
+        </p>
+        <div className="flex gap-2 overflow-x-auto pb-1">
+          {RECOMMENDED_QUESTIONS.map((rq) => (
+            <button
+              key={rq}
+              disabled={!workspaceId || busy}
+              onClick={() => ask(rq)}
+              title={rq}
+              className="shrink-0 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-700 transition hover:border-brand-400 hover:bg-brand-50 disabled:opacity-50"
+            >
+              {rq}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-2 flex gap-2">
         <input
           className="input"
           placeholder={workspaceId ? 'e.g. What is the termination notice period?' : 'Select a workspace first'}

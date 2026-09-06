@@ -52,6 +52,17 @@ The backend degrades gracefully so you can demo it offline:
 MongoDB is the one hard requirement — use `docker compose up -d mongo` or a free
 Atlas cluster.
 
+### Demo data
+
+`npm run dev:mem` (backend, no MongoDB needed) boots an ephemeral in-memory
+MongoDB **and seeds a "Demo — Sample MSA" workspace** with the sample contract
+already ingested, so the UI has something to query on first load. Set
+`SEED_DEMO=true` to get the same seed with `npm run dev` against a real MongoDB
+(idempotent — it no-ops if the demo doc is already ingested).
+
+The chat panel always shows six recommended clause-focused questions above the
+input; click one to ask it.
+
 ## Design principle: dynamic / admin-configurable
 
 Every tunable lives in `workspace.settings` and is editable at runtime via

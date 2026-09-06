@@ -36,11 +36,15 @@ export function createApp() {
 async function start() {
   await connectDB();
   const app = createApp();
-  app.listen(config.port, () => {
+  app.listen(config.port, async () => {
     logger.info(`DocIQ API on http://localhost:${config.port}`);
     logger.info(
       `providers → llm:${config.llmProvider} embed:${config.embeddingProvider} vector:${config.vectorStore} queue:${config.useQueue ? 'bullmq' : 'inline'}`
     );
+    if (config.seedDemo) {
+      const { seedDemo } = await import('./config/seed.js');
+      await seedDemo();
+    }
   });
 }
 

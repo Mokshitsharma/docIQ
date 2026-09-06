@@ -16,6 +16,8 @@ export const config = {
   useQueue: bool(process.env.USE_QUEUE, false),
   redisUrl: process.env.REDIS_URL || 'redis://localhost:6379',
 
+  seedDemo: bool(process.env.SEED_DEMO, false),
+
   vectorStore: process.env.VECTOR_STORE || 'memory',
   chromaUrl: process.env.CHROMA_URL || 'http://localhost:8000',
   chromaCollection: process.env.CHROMA_COLLECTION || 'dociq',
