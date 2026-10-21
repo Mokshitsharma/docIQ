@@ -1,0 +1,17 @@
+# Render Blueprint: public demo of the docIQ API on the free plan.
+# Render → New → Blueprint → pick this repo. Runs fully offline (in-memory database seeded with a
+# sample contract, local embeddings, extractive answers). Add GROQ_API_KEY and set
+# LLM_PROVIDER=groq for full LLM answers. The Next.js frontend goes on Vercel with
+# BACKEND_URL set to this service's URL.
+services:
+  - type: web
+    name: dociq-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./deploy/container/Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
