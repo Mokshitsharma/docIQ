@@ -177,6 +177,43 @@
           ]
         }
       },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6379,
+            "n": 58,
+            "ci": [
+              0.5172,
+              0.7586
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.7692,
+            "n": 13,
+            "ci": [
+              0.5385,
+              1
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.662,
+            "n": 71,
+            "ci": [
+              0.5493,
+              0.7746
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1207,
+            "n": 58,
+            "ci": [
+              0.0345,
+              0.2069
+            ]
+          }
+        }
+      },
       "gate": null
     },
     {
@@ -247,6 +284,43 @@
             0,
             0.1207
           ]
+        }
+      },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6207,
+            "n": 58,
+            "ci": [
+              0.5,
+              0.7414
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.6923,
+            "n": 13,
+            "ci": [
+              0.4615,
+              0.9231
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.6338,
+            "n": 71,
+            "ci": [
+              0.5211,
+              0.7465
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1207,
+            "n": 58,
+            "ci": [
+              0.0517,
+              0.2069
+            ]
+          }
         }
       },
       "gate": {
@@ -325,6 +399,43 @@
           ]
         }
       },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6552,
+            "n": 58,
+            "ci": [
+              0.5345,
+              0.7759
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.7692,
+            "n": 13,
+            "ci": [
+              0.5385,
+              1
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.6761,
+            "n": 71,
+            "ci": [
+              0.5634,
+              0.7887
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1207,
+            "n": 58,
+            "ci": [
+              0.0517,
+              0.2069
+            ]
+          }
+        }
+      },
       "gate": {
         "threshold": 0.15,
         "minTopScore": 0.7154,
@@ -401,6 +512,43 @@
           ]
         }
       },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6207,
+            "n": 58,
+            "ci": [
+              0.5,
+              0.7414
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.7692,
+            "n": 13,
+            "ci": [
+              0.5385,
+              1
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.6479,
+            "n": 71,
+            "ci": [
+              0.5352,
+              0.7606
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1207,
+            "n": 58,
+            "ci": [
+              0.0345,
+              0.2069
+            ]
+          }
+        }
+      },
       "gate": null
     },
     {
@@ -471,6 +619,43 @@
             0,
             0.0517
           ]
+        }
+      },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6207,
+            "n": 58,
+            "ci": [
+              0.5,
+              0.7414
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.6923,
+            "n": 13,
+            "ci": [
+              0.4615,
+              0.9231
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.6338,
+            "n": 71,
+            "ci": [
+              0.5211,
+              0.7465
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1552,
+            "n": 58,
+            "ci": [
+              0.069,
+              0.2586
+            ]
+          }
         }
       },
       "gate": {
@@ -549,6 +734,43 @@
           ]
         }
       },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6552,
+            "n": 58,
+            "ci": [
+              0.5345,
+              0.7759
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.6923,
+            "n": 13,
+            "ci": [
+              0.4615,
+              0.9231
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.662,
+            "n": 71,
+            "ci": [
+              0.5493,
+              0.7746
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1207,
+            "n": 58,
+            "ci": [
+              0.0517,
+              0.2069
+            ]
+          }
+        }
+      },
       "gate": {
         "threshold": 0.15,
         "minTopScore": 0.699,
@@ -623,6 +845,43 @@
             0,
             0.0517
           ]
+        }
+      },
+      "withCoverageGate": {
+        "minCoverage": 0.3,
+        "answers": {
+          "answerAccuracy": {
+            "value": 0.6207,
+            "n": 58,
+            "ci": [
+              0.5,
+              0.7414
+            ]
+          },
+          "refusalAccuracy": {
+            "value": 0.7692,
+            "n": 13,
+            "ci": [
+              0.5385,
+              1
+            ]
+          },
+          "overallAccuracy": {
+            "value": 0.6479,
+            "n": 71,
+            "ci": [
+              0.5352,
+              0.7606
+            ]
+          },
+          "falseRefusalRate": {
+            "value": 0.1379,
+            "n": 58,
+            "ci": [
+              0.0517,
+              0.2241
+            ]
+          }
         }
       },
       "gate": null
@@ -804,6 +1063,83 @@
         -0.0423,
         0
       ]
+    },
+    {
+      "a": "bm25+coverageGate",
+      "b": "bm25",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0282,
+        0.1549
+      ]
+    },
+    {
+      "a": "vector:local+coverageGate",
+      "b": "vector:local",
+      "metric": "overallAccuracy",
+      "diff": 0.0704,
+      "n": 71,
+      "ci": [
+        -0.0141,
+        0.1549
+      ]
+    },
+    {
+      "a": "hybrid:local+coverageGate",
+      "b": "hybrid:local",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0282,
+        0.1549
+      ]
+    },
+    {
+      "a": "hybrid-rrf:local+coverageGate",
+      "b": "hybrid-rrf:local",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0423,
+        0.1549
+      ]
+    },
+    {
+      "a": "vector:minilm+coverageGate",
+      "b": "vector:minilm",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0282,
+        0.1408
+      ]
+    },
+    {
+      "a": "hybrid:minilm+coverageGate",
+      "b": "hybrid:minilm",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0282,
+        0.1408
+      ]
+    },
+    {
+      "a": "hybrid-rrf:minilm+coverageGate",
+      "b": "hybrid-rrf:minilm",
+      "metric": "overallAccuracy",
+      "diff": 0.0563,
+      "n": 71,
+      "ci": [
+        -0.0282,
+        0.1549
+      ]
     }
   ],
   "perQuestion": {
@@ -812,427 +1148,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3138
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5414
       },
       {
         "id": "far212-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3468
       },
       {
         "id": "far212-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8147
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1809
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4302
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7287
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8092
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7296
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5488
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1676
       },
       {
         "id": "far212-14",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5251
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.6178
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5053
       },
       {
         "id": "pp-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7289
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7327
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5497
       },
       {
         "id": "pp-09",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2518
       },
       {
         "id": "pp-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6812
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2377
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4121
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5219
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.393
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5862
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4978
       },
       {
         "id": "hipaa-07",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8367
       },
       {
         "id": "hipaa-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1676
       },
       {
         "id": "gifts-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8195
       },
       {
         "id": "gifts-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1567
       },
       {
         "id": "gifts-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.375
       },
       {
         "id": "gifts-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3908
       },
       {
         "id": "gifts-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3818
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-08",
         "rank": 4,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6317
       },
       {
         "id": "gifts-10",
         "rank": 4,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2816
       },
       {
         "id": "csf-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8392
       },
       {
         "id": "csf-09",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4335
       },
       {
         "id": "csf-10",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3485
       },
       {
         "id": "csf-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.826
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1999
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2687
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1159
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2433
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.153
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3096
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.201
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3224
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2413
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4511
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0499
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0272
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       }
     ],
     "vector:local": [
@@ -1240,427 +1647,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5016
       },
       {
         "id": "far212-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3585
       },
       {
         "id": "far212-03",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3704
       },
       {
         "id": "far212-04",
         "rank": null,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1199
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7129
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1809
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4979
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7879
       },
       {
         "id": "far212-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6385
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7504
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6822
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1978
       },
       {
         "id": "far212-14",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5803
       },
       {
         "id": "pp-01",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5324
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5705
       },
       {
         "id": "pp-05",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7347
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6712
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.606
       },
       {
         "id": "pp-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3299
       },
       {
         "id": "pp-10",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6986
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2377
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4207
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5516
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4233
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4952
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5782
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7593
       },
       {
         "id": "hipaa-10",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2496
       },
       {
         "id": "gifts-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6029
       },
       {
         "id": "gifts-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3192
       },
       {
         "id": "gifts-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3563
       },
       {
         "id": "gifts-04",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4237
       },
       {
         "id": "gifts-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3948
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.495
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": null,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1791
       },
       {
         "id": "gifts-10",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4765
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2816
       },
       {
         "id": "csf-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.75
       },
       {
         "id": "csf-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3048
       },
       {
         "id": "csf-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4765
       },
       {
         "id": "csf-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.7837
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2833
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2615
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.0878
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2162
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1838
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4859
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0775
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.191
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2492
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4748
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5179
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0272
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5179
       }
     ],
     "hybrid:local": [
@@ -1668,427 +2146,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3138
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5414
       },
       {
         "id": "far212-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3744
       },
       {
         "id": "far212-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8223
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3138
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4474
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7287
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6961
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.672
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5647
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1676
       },
       {
         "id": "far212-14",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5448
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.7833
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5296
       },
       {
         "id": "pp-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7365
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8477
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5838
       },
       {
         "id": "pp-09",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2518
       },
       {
         "id": "pp-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.548
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2377
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4852
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5643
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3732
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6108
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5349
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2837
       },
       {
         "id": "hipaa-09",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7593
       },
       {
         "id": "hipaa-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.22
       },
       {
         "id": "gifts-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8195
       },
       {
         "id": "gifts-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3146
       },
       {
         "id": "gifts-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3563
       },
       {
         "id": "gifts-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4319
       },
       {
         "id": "gifts-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3818
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4265
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1782
       },
       {
         "id": "gifts-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5879
       },
       {
         "id": "csf-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7595
       },
       {
         "id": "csf-09",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4253
       },
       {
         "id": "csf-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2911
       },
       {
         "id": "csf-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.826
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1999
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2687
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.0878
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2162
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.128
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4148
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1487
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2181
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2634
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4119
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2946
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2558
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5373
       }
     ],
     "hybrid-rrf:local": [
@@ -2096,427 +2645,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3138
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3585
       },
       {
         "id": "far212-03",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3704
       },
       {
         "id": "far212-04",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7353
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1809
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.471
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7287
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.717
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6607
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5647
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1978
       },
       {
         "id": "far212-14",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5448
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5092
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5296
       },
       {
         "id": "pp-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7289
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7669
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5838
       },
       {
         "id": "pp-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3045
       },
       {
         "id": "pp-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.548
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2377
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4314
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5334
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3262
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5695
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5815
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7593
       },
       {
         "id": "hipaa-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2012
       },
       {
         "id": "gifts-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5385
       },
       {
         "id": "gifts-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2634
       },
       {
         "id": "gifts-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3563
       },
       {
         "id": "gifts-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4054
       },
       {
         "id": "gifts-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3557
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4265
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7776
       },
       {
         "id": "gifts-10",
         "rank": 4,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2816
       },
       {
         "id": "csf-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7595
       },
       {
         "id": "csf-09",
         "rank": 4,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4335
       },
       {
         "id": "csf-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2262
       },
       {
         "id": "csf-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.826
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2483
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2615
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.0781
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2162
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1736
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4252
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2189
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2184
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2591
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.384
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2928
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0272
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.6187
       }
     ],
     "vector:minilm": [
@@ -2524,427 +3144,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4889
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3963
       },
       {
         "id": "far212-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4259
       },
       {
         "id": "far212-04",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6384
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1809
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.471
       },
       {
         "id": "far212-08",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7983
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7551
       },
       {
         "id": "far212-11",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6168
       },
       {
         "id": "far212-12",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5488
       },
       {
         "id": "far212-13",
         "rank": 3,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2772
       },
       {
         "id": "far212-14",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5803
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.6619
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5705
       },
       {
         "id": "pp-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1295
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6078
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.606
       },
       {
         "id": "pp-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3299
       },
       {
         "id": "pp-10",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.548
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3438
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4139
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4711
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3034
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5228
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.526
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8367
       },
       {
         "id": "hipaa-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1676
       },
       {
         "id": "gifts-01",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5103
       },
       {
         "id": "gifts-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1845
       },
       {
         "id": "gifts-03",
         "rank": 5,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.209
       },
       {
         "id": "gifts-04",
         "rank": null,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3762
       },
       {
         "id": "gifts-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3524
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4579
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4519
       },
       {
         "id": "gifts-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3767
       },
       {
         "id": "gifts-10",
         "rank": 5,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0951
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.423
       },
       {
         "id": "csf-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7165
       },
       {
         "id": "csf-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1622
       },
       {
         "id": "csf-10",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2996
       },
       {
         "id": "csf-11",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5948
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.277
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.311
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.0829
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2526
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1635
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4859
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1882
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2418
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3152
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.236
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0499
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0423
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.39
       }
     ],
     "hybrid:minilm": [
@@ -2952,427 +3643,498 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3499
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5414
       },
       {
         "id": "far212-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3999
       },
       {
         "id": "far212-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8309
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2435
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4474
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7282
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7089
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6168
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5488
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1676
       },
       {
         "id": "far212-14",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.555
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.6426
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5296
       },
       {
         "id": "pp-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7289
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7327
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5838
       },
       {
         "id": "pp-09",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2518
       },
       {
         "id": "pp-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.548
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2377
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.403
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5542
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3413
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4863
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.526
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8367
       },
       {
         "id": "hipaa-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3174
       },
       {
         "id": "gifts-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8309
       },
       {
         "id": "gifts-02",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2893
       },
       {
         "id": "gifts-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3563
       },
       {
         "id": "gifts-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.46
       },
       {
         "id": "gifts-05",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2604
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4265
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5199
       },
       {
         "id": "gifts-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5879
       },
       {
         "id": "csf-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7291
       },
       {
         "id": "csf-09",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3945
       },
       {
         "id": "csf-10",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2262
       },
       {
         "id": "csf-11",
         "rank": 5,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.8392
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1999
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3225
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1159
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2863
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.153
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4148
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2189
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3344
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2634
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4119
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0499
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2558
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3499
       }
     ],
     "hybrid-rrf:minilm": [
@@ -3380,433 +4142,504 @@
         "id": "far212-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3499
       },
       {
         "id": "far212-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4956
       },
       {
         "id": "far212-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3744
       },
       {
         "id": "far212-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6078
       },
       {
         "id": "far212-06",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1809
       },
       {
         "id": "far212-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4302
       },
       {
         "id": "far212-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-09",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7414
       },
       {
         "id": "far212-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7308
       },
       {
         "id": "far212-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6078
       },
       {
         "id": "far212-12",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5488
       },
       {
         "id": "far212-13",
         "rank": 1,
         "refused": true,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1676
       },
       {
         "id": "far212-14",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "far212-15",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5448
       },
       {
         "id": "pp-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.6619
       },
       {
         "id": "pp-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "pp-04",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5551
       },
       {
         "id": "pp-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1171
       },
       {
         "id": "pp-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "pp-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.6078
       },
       {
         "id": "pp-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5838
       },
       {
         "id": "pp-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2518
       },
       {
         "id": "pp-10",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.548
       },
       {
         "id": "hipaa-01",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3438
       },
       {
         "id": "hipaa-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3957
       },
       {
         "id": "hipaa-03",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.5189
       },
       {
         "id": "hipaa-04",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3034
       },
       {
         "id": "hipaa-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4863
       },
       {
         "id": "hipaa-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.526
       },
       {
         "id": "hipaa-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-08",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.344
       },
       {
         "id": "hipaa-09",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.8367
       },
       {
         "id": "hipaa-10",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "hipaa-11",
         "rank": 4,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1676
       },
       {
         "id": "gifts-01",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5103
       },
       {
         "id": "gifts-02",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.1845
       },
       {
         "id": "gifts-03",
         "rank": 3,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4104
       },
       {
         "id": "gifts-04",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4319
       },
       {
         "id": "gifts-05",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.2604
       },
       {
         "id": "gifts-06",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-07",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.4265
       },
       {
         "id": "gifts-08",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       },
       {
         "id": "gifts-09",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.5199
       },
       {
         "id": "gifts-10",
         "rank": 4,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "gifts-11",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-01",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-02",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-03",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-04",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-05",
         "rank": 1,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 1
       },
       {
         "id": "csf-06",
         "rank": 1,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 1
       },
       {
         "id": "csf-07",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3453
       },
       {
         "id": "csf-08",
         "rank": 2,
         "refused": false,
-        "correct": true
+        "correct": true,
+        "coverage": 0.7291
       },
       {
         "id": "csf-09",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3048
       },
       {
         "id": "csf-10",
         "rank": 2,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2422
       },
       {
         "id": "csf-11",
         "rank": 3,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.8763
       },
       {
         "id": "unans-01",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2667
       },
       {
         "id": "unans-02",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2439
       },
       {
         "id": "unans-03",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.0992
       },
       {
         "id": "unans-04",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2502
       },
       {
         "id": "unans-05",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.1969
       },
       {
         "id": "unans-06",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3767
       },
       {
         "id": "unans-07",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.201
       },
       {
         "id": "unans-08",
         "rank": null,
         "refused": true,
-        "correct": true
+        "correct": true,
+        "coverage": 0.3113
       },
       {
         "id": "unans-09",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.2974
       },
       {
         "id": "unans-10",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.4511
       },
       {
         "id": "unans-11",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0499
       },
       {
         "id": "unans-12",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.0272
       },
       {
         "id": "unans-13",
         "rank": null,
         "refused": false,
-        "correct": false
+        "correct": false,
+        "coverage": 0.3987
       }
     ]
   },
   "meta": {
     "generatedBy": "node eval/eval.js",
     "node": "v24.19.0",
-    "durationMs": 49376
+    "durationMs": 55228
   }
 }

@@ -1,0 +1,133 @@
+{
+  "dataset": {
+    "path": "eval/datasets/dev-qa.json",
+    "questions": 24,
+    "answerable": 14,
+    "unanswerable": 10
+  },
+  "rule": "refuse if queryCoverage(question, top-5 chunks) < threshold",
+  "selection": "max mean dev overall accuracy across all retriever/embedder runs; ties -> lower threshold",
+  "chosen": 0.3,
+  "grid": [
+    {
+      "threshold": 0,
+      "meanOverall": 0.625,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.3857
+    },
+    {
+      "threshold": 0.05,
+      "meanOverall": 0.6786,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.5143
+    },
+    {
+      "threshold": 0.1,
+      "meanOverall": 0.7321,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.6429
+    },
+    {
+      "threshold": 0.15,
+      "meanOverall": 0.756,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.7
+    },
+    {
+      "threshold": 0.2,
+      "meanOverall": 0.7619,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.7143
+    },
+    {
+      "threshold": 0.25,
+      "meanOverall": 0.8095,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.8286
+    },
+    {
+      "threshold": 0.3,
+      "meanOverall": 0.875,
+      "meanAnswer": 0.7959,
+      "meanRefusal": 0.9857
+    },
+    {
+      "threshold": 0.35,
+      "meanOverall": 0.875,
+      "meanAnswer": 0.7857,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.4,
+      "meanOverall": 0.875,
+      "meanAnswer": 0.7857,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.45,
+      "meanOverall": 0.869,
+      "meanAnswer": 0.7755,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.5,
+      "meanOverall": 0.8512,
+      "meanAnswer": 0.7449,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.55,
+      "meanOverall": 0.7738,
+      "meanAnswer": 0.6122,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.6,
+      "meanOverall": 0.75,
+      "meanAnswer": 0.5714,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.65,
+      "meanOverall": 0.7262,
+      "meanAnswer": 0.5306,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.7,
+      "meanOverall": 0.7262,
+      "meanAnswer": 0.5306,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.75,
+      "meanOverall": 0.7202,
+      "meanAnswer": 0.5204,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.8,
+      "meanOverall": 0.7024,
+      "meanAnswer": 0.4898,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.85,
+      "meanOverall": 0.6964,
+      "meanAnswer": 0.4796,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.9,
+      "meanOverall": 0.6905,
+      "meanAnswer": 0.4694,
+      "meanRefusal": 1
+    },
+    {
+      "threshold": 0.95,
+      "meanOverall": 0.6667,
+      "meanAnswer": 0.4286,
+      "meanRefusal": 1
+    }
+  ]
+}

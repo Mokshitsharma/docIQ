@@ -1,0 +1,32 @@
+{
+  "name": "dev-qa",
+  "version": 1,
+  "description": "Dev split for choosing the refusal gate (eval/tune-gate.js). Same corpus and format as public-docs-qa.json, but different questions; never used for reported test metrics.",
+  "cases": [
+    { "id": "dev-a01", "docId": "far-52-212-4", "question": "What warranty does the Contractor give for items delivered?", "evidence": ["items delivered hereunder are merchantable and fit for use"], "answers": ["merchantable"] },
+    { "id": "dev-a02", "docId": "far-52-212-4", "question": "With which laws must the Contractor comply in performing the contract?", "evidence": ["comply with all applicable Federal, State and local laws, executive orders, rules and regulations"], "answers": ["federal, state and local laws"] },
+    { "id": "dev-a03", "docId": "far-52-212-4", "question": "How are inconsistencies in the solicitation or contract resolved?", "evidence": ["shall be resolved by giving precedence in the following order"], "answers": ["precedence"] },
+    { "id": "dev-a04", "docId": "far-52-212-4", "question": "Are the Contractor's SAM representations and certifications part of the contract?", "evidence": ["are incorporated by reference into the contract"], "answers": ["incorporated by reference"] },
+    { "id": "dev-a05", "docId": "far-52-232-25", "question": "When are invoices for dairy products and edible fats or oils due?", "evidence": ["the 10th day after the date on which a proper invoice has been received"], "answers": ["10th day"] },
+    { "id": "dev-a06", "docId": "far-52-232-25", "question": "What must the Contractor do on becoming aware of a duplicate invoice payment?", "evidence": ["Remit the overpayment amount to the payment office cited in the contract"], "answers": ["remit the overpayment"] },
+    { "id": "dev-a07", "docId": "far-52-232-25", "question": "For interim payments under a cost-reimbursement contract for services, what is the due date for computing late payment interest?", "evidence": ["the due date for payment is the 30th day after the designated billing office receives a proper invoice"], "answers": ["30th day"] },
+    { "id": "dev-a08", "docId": "hipaa-breach-notification", "question": "If a law enforcement official's statement is in writing, how long is breach notification delayed?", "evidence": ["delay such notification, notice, or posting for the time period specified by the official"], "answers": ["time period specified by the official"] },
+    { "id": "dev-a09", "docId": "hipaa-breach-notification", "question": "What must a business associate's breach notification to the covered entity include?", "evidence": ["the identification of each individual whose unsecured protected health information has been"], "answers": ["identification of each individual"] },
+    { "id": "dev-a10", "docId": "hipaa-breach-notification", "question": "How long must the toll-free number for substitute breach notice remain active?", "evidence": ["Include a toll-free phone number that remains active for at least 90 days"], "answers": ["at least 90 days"] },
+    { "id": "dev-a11", "docId": "ethics-gifts", "question": "Is a bank loan on terms generally available to the public a gift?", "evidence": ["Loans from banks and other financial institutions on terms generally available to the public"], "answers": ["loans from banks"] },
+    { "id": "dev-a12", "docId": "ethics-gifts", "question": "Under the social invitations exception, what is not included in what an employee may accept?", "evidence": ["food, refreshments, and entertainment, not including travel or lodgings"], "answers": ["not including travel or lodgings"] },
+    { "id": "dev-a13", "docId": "nist-csf-2", "question": "What are CSF Organizational Profiles?", "evidence": ["CSF Organizational Profiles, which are a mechanism for describing"], "answers": ["mechanism for describing"] },
+    { "id": "dev-a14", "docId": "nist-csf-2", "question": "What does CSF subcategory RS.MI-02 state?", "evidence": ["RS.MI-02: Incidents are eradicated"], "answers": ["incidents are eradicated"] },
+
+    { "id": "dev-u01", "docId": null, "question": "How many months is the warranty period for delivered items?" },
+    { "id": "dev-u02", "docId": null, "question": "What late fee percentage does HHS charge covered entities?" },
+    { "id": "dev-u03", "docId": null, "question": "Within how many days must an employee report a gift to a supervisor?" },
+    { "id": "dev-u04", "docId": null, "question": "What minimum password length does CSF 2.0 require?" },
+    { "id": "dev-u05", "docId": null, "question": "Which arbitration body resolves disputes under the contract?" },
+    { "id": "dev-u06", "docId": null, "question": "What dollar amount of liability insurance must the Contractor carry?" },
+    { "id": "dev-u07", "docId": null, "question": "What fine does the FTC impose for a data breach?" },
+    { "id": "dev-u08", "docId": null, "question": "What is the GDPR fine for failing to notify a breach?" },
+    { "id": "dev-u09", "docId": null, "question": "Which cloud providers are certified under NIST CSF 2.0?" },
+    { "id": "dev-u10", "docId": null, "question": "What salary grade must an agency ethics official hold?" }
+  ]
+}

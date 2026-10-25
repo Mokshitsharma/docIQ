@@ -157,11 +157,38 @@ Paired bootstrap differences (same questions, a − b, percentage points):
   Hybrid does not beat it, and most hybrid-vs-BM25 CIs include 0.
   The questions are mostly exact-term lookups in legal/regulatory text, which favours keyword retrieval.
 - Only one paired CI excludes zero: hybrid-rrf:local vs vector:local on hit@5.
-- **Refusal is weak: 2 of 13 unanswerable questions refused (15.4%) in every configuration.**
+- **Without the coverage gate, refusal is weak: 2 of 13 unanswerable questions refused (15.4%) in every configuration.**
   The 0.15 confidence gate never fires. The `vector`/`hybrid` scores are (cos+1)/2; the lowest top-1 score on any of the 71 questions is 0.5994 (`vector:local`) and 0.6387 (`vector:minilm`), so `refusedByGate` is 0 in every gated run (see `runs[].gate` in the JSON).
   The extractive provider's term-overlap check usually finds a related sentence and answers.
 - Answer accuracy (65.5–72.4%) is well below hit@5 (86.2–98.3%).
   The extractive provider often picks a sentence from the right chunk that is not the one with the answer.
+
+### Refusal gate: query-term coverage
+
+The answer step now also refuses when the best top-5 chunk covers less than
+`minQueryCoverage` of the question's terms, weighted by idf over the retrieved chunks
+(`src/services/query/coverage.js`). The threshold, **0.30**, was chosen only on a separate
+24-question dev split (`eval/datasets/dev-qa.json`: 14 answerable, 10 unanswerable; none of
+them are test questions). `node eval/tune-gate.js` picks the value with the best mean dev
+overall accuracy and writes `eval/results/gate-tuning.json`. It is now the app default
+(`DEFAULT_MIN_QUERY_COVERAGE`). Test-set results with the gate, same retrieval as above:
+
+| Retriever | Embedder | Answer acc. (n=58) | Refusal acc. (n=13) | Overall acc. (n=71) | Overall Δ vs no gate [95% CI] |
+|---|---|---|---|---|---|
+| bm25 | — | 63.8 [51.7–75.9] | 76.9 [53.8–100.0] | 66.2 [54.9–77.5] | +5.6 [−2.8, 15.5] |
+| vector | local | 62.1 [50.0–74.1] | 69.2 [46.2–92.3] | 63.4 [52.1–74.7] | +7.0 [−1.4, 15.5] |
+| hybrid | local | 65.5 [53.4–77.6] | 76.9 [53.8–100.0] | 67.6 [56.3–78.9] | +5.6 [−2.8, 15.5] |
+| hybrid-rrf | local | 62.1 [50.0–74.1] | 76.9 [53.8–100.0] | 64.8 [53.5–76.1] | +5.6 [−4.2, 15.5] |
+| vector | minilm | 62.1 [50.0–74.1] | 69.2 [46.2–92.3] | 63.4 [52.1–74.7] | +5.6 [−2.8, 14.1] |
+| hybrid | minilm | 65.5 [53.4–77.6] | 69.2 [46.2–92.3] | 66.2 [54.9–77.5] | +5.6 [−2.8, 14.1] |
+| hybrid-rrf | minilm | 62.1 [50.0–74.1] | 76.9 [53.8–100.0] | 64.8 [53.5–76.1] | +5.6 [−2.8, 15.5] |
+
+**The trade-off:**
+- Refusal accuracy rises from 15.4% to 69.2–76.9%, i.e. 9–10 of 13 refused.
+- Answer accuracy on answerable questions falls by 3.4–6.9 points (e.g. hybrid:local 72.4 → 65.5),
+  because some correct answers are now wrongly refused.
+- Overall accuracy rises by 5.6–7.0 points, but every paired CI includes 0.
+  With 13 unanswerable questions, the improvement is not statistically established.
 
 ## Limitations
 
@@ -176,9 +203,11 @@ Paired bootstrap differences (same questions, a − b, percentage points):
   when it quotes the right figure from the wrong sentence. It can also count a correct paraphrase as wrong.
 - **The default `local` embedder is lexical** (hashed bag-of-words). "Vector" with `local` is not a
   semantic baseline; the `minilm` rows are the semantic comparison.
-- **The thresholds and weights were not tuned.** The hybrid weights (0.7/0.3), the 0.15 confidence
-  threshold and the chunk size are the app defaults, used unchanged and never tuned on this set.
-  There is no held-out split, so treat the set as a benchmark, not a tuning set.
+- **Little tuning, and a small dev split.** The hybrid weights (0.7/0.3), the 0.15 confidence threshold
+  and the chunk size are app defaults that were never tuned. The only tuned value is the 0.30 coverage
+  threshold. It was chosen on a 24-question dev split from the same 5 documents and the same author, so
+  it may not transfer to other corpora. Its dev accuracy (mean 0.875) is higher than on the test set.
+  0.30, 0.35 and 0.40 tied on dev, and the lowest was taken.
 - **The PDF page numbers are wrong.** The PDF parser splits pages on form feeds, but `pdf-parse` 1.1.1
   does not emit them, so all of a PDF's text is attributed to page 1. The eval uses text snapshots and
   does not measure page-level citation accuracy.

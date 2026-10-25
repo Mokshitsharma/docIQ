@@ -47,6 +47,9 @@ export const config = {
     topK: num(process.env.DEFAULT_TOP_K, 5),
     retrievalStrategy: process.env.DEFAULT_RETRIEVAL_STRATEGY || 'vector',
     confidenceThreshold: num(process.env.DEFAULT_CONFIDENCE_THRESHOLD, 0.15),
+    // Refuse when the best chunk covers less than this share of the question's idf-weighted terms.
+    // Chosen on the dev split only (eval/tune-gate.js → eval/results/gate-tuning.json).
+    minQueryCoverage: num(process.env.DEFAULT_MIN_QUERY_COVERAGE, 0.3),
   },
 };
 

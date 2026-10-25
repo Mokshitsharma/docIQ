@@ -63,6 +63,8 @@ const BOOT = { resamples: 10000, seed: 1234, alpha: 0.05 };
 // These equal the app defaults (DEFAULT_CHUNK_SIZE / DEFAULT_CHUNK_OVERLAP / DEFAULT_CONFIDENCE_THRESHOLD).
 const CHUNK = { chunkSize: 800, chunkOverlap: 100 };
 const THRESHOLD = 0.15;
+// Query-coverage refusal gate, chosen on the dev split by eval/tune-gate.js (see eval/results/gate-tuning.json).
+export const MIN_COVERAGE = 0.3;
 
 export const normalize = (s) =>
   (s || '')
@@ -72,8 +74,8 @@ export const normalize = (s) =>
     .replace(/\s+/g, ' ')
     .trim();
 
-export async function loadDataset() {
-  const spec = JSON.parse(await fs.readFile(DATASET_PATH, 'utf8'));
+export async function loadDataset(datasetPath = DATASET_PATH) {
+  const spec = JSON.parse(await fs.readFile(datasetPath, 'utf8'));
   const sources = JSON.parse(await fs.readFile(path.join(CORPUS_DIR, 'SOURCES.json'), 'utf8'));
   return { spec, sources };
 }
@@ -135,6 +137,12 @@ export function isRelevant(chunk, c) {
   return c.evidence.some((e) => body.includes(normalize(e)));
 }
 
+function gateRows(perQ, minCoverage) {
+  return perQ.map((r) =>
+    r.coverage < minCoverage ? { ...r, refused: true, correct: !r.answerable } : r
+  );
+}
+
 function summarize(perQ) {
   const ans = perQ.filter((r) => r.answerable);
   const unans = perQ.filter((r) => !r.answerable);
@@ -152,8 +160,14 @@ function summarize(perQ) {
   };
 }
 
-export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extractive', log = () => {} } = {}) {
-  const { spec, sources } = await loadDataset();
+export async function runEval({
+  embedders = ['local', 'minilm'],
+  llmName = 'extractive',
+  datasetPath = DATASET_PATH,
+  minCoverage = MIN_COVERAGE,
+  log = () => {},
+} = {}) {
+  const { spec, sources } = await loadDataset(datasetPath);
   const chunks = await buildChunks(sources);
   const cases = spec.cases.map((c) => ({ ...c, answerable: Boolean(c.docId) }));
 
@@ -185,6 +199,7 @@ export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extr
   const bm25 = new BM25Index(chunks.map((c) => c.text));
   const runs = [];
   const perQuestion = {};
+  const rowsByRun = {};
   const answerable = new Map(cases.map((c) => [c.id, c.answerable]));
 
   const evaluate = async (name, retriever, embedder) => {
@@ -204,12 +219,15 @@ export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extr
       const correct = c.answerable
         ? !refused && c.answers.some((a) => normalize(out.answer).includes(normalize(a)))
         : refused;
-      rows.push({ id: c.id, answerable: c.answerable, rank, refused, correct, topScore: out.confidence, gated: out.gated });
+      rows.push({ id: c.id, answerable: c.answerable, rank, refused, correct, coverage: out.coverage, topScore: out.confidence, gated: out.gated });
     }
     perQuestion[name] = rows.map(({ answerable: _a, topScore: _t, gated: _g, ...r }) => r);
+    rowsByRun[name] = rows;
     runs.push({
       name,
       ...summarize(rows),
+      // Same retrieval and answers, plus the query-coverage refusal gate.
+      withCoverageGate: { minCoverage, answers: summarize(gateRows(rows, minCoverage)).answers },
       // How the confidence gate behaved: lowest top-1 score seen, and how many answers it blocked.
       gate: retriever.gate
         ? { threshold: THRESHOLD, minTopScore: Math.min(...rows.map((r) => r.topScore)), refusedByGate: rows.filter((r) => r.gated).length }
@@ -244,6 +262,20 @@ export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extr
         comparisons.push({ a, b, metric, ...pairedBootstrapDiff(outcome(a, metric), outcome(b, metric), BOOT) });
       }
     }
+  }
+  // Coverage gate vs no gate, per run (overall accuracy on all questions).
+  for (const name of Object.keys(perQuestion)) {
+    const rows = perQuestion[name].map((r) => ({ ...r, answerable: answerable.get(r.id) }));
+    comparisons.push({
+      a: `${name}+coverageGate`,
+      b: name,
+      metric: 'overallAccuracy',
+      ...pairedBootstrapDiff(
+        gateRows(rows, minCoverage).map((r) => (r.correct ? 1 : 0)),
+        rows.map((r) => (r.correct ? 1 : 0)),
+        BOOT
+      ),
+    });
   }
 
   return {
@@ -290,6 +322,7 @@ export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extr
     runs,
     comparisons,
     perQuestion,
+    rowsByRun,
   };
 }
 
@@ -325,6 +358,7 @@ async function main() {
   const t0 = Date.now();
   console.log('\nDocIQ eval — public-docs-qa');
   const results = await runEval({ embedders, llmName, log: console.log });
+  delete results.rowsByRun;
   results.meta = { generatedBy: 'node eval/eval.js', node: process.version, durationMs: Date.now() - t0 };
 
   const d = results.dataset;
@@ -336,6 +370,12 @@ async function main() {
   }
   console.log('  values in %, bootstrap 95% CI in brackets\n');
   console.log(formatTable(results));
+  console.log(`
+  with query-coverage gate (minCoverage=${results.runs[0].withCoverageGate.minCoverage}):`);
+  for (const r of results.runs) {
+    const a = r.withCoverageGate.answers;
+    console.log(`  ${r.name.padEnd(18)} answer ${pct(a.answerAccuracy)} ${ci(a.answerAccuracy).padEnd(12)} refusal ${pct(a.refusalAccuracy)} ${ci(a.refusalAccuracy).padEnd(12)} overall ${pct(a.overallAccuracy)} ${ci(a.overallAccuracy)}`);
+  }
   console.log('\n  paired differences (a - b, 95% CI):');
   for (const c of results.comparisons) {
     console.log(

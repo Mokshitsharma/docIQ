@@ -3,6 +3,8 @@ import Workspace from '../../models/Workspace.js';
 import QueryLog from '../../models/QueryLog.js';
 import { retrieve } from '../retrieval/retriever.js';
 import { getLLMProvider } from '../llm/index.js';
+import { queryCoverage } from './coverage.js';
+import config from '../../config/index.js';
 
 export const SYSTEM_PROMPT = `You are DocIQ, a document-grounded assistant.
 Rules:
@@ -42,6 +44,7 @@ export async function answerQuestion({ workspaceId, question, userId } = {}) {
     chunks,
     llm,
     threshold: s.confidenceThreshold ?? 0.15,
+    minCoverage: s.minQueryCoverage ?? config.defaults.minQueryCoverage,
     docNameOf: (c) => docNames.get(String(c.documentId)) || 'doc',
   });
 
@@ -75,13 +78,21 @@ export const REFUSAL = "I couldn't find this in the provided documents.";
  * the LLM (`gated: true`). Otherwise the LLM answers from numbered context and
  * its [n] markers are mapped back to chunks (all retrieved chunks if none cited).
  */
-export async function generateGroundedAnswer({ question, chunks, llm, threshold = 0.15, docNameOf = () => 'doc' }) {
+export async function generateGroundedAnswer({
+  question,
+  chunks,
+  llm,
+  threshold = 0.15,
+  minCoverage = 0,
+  docNameOf = () => 'doc',
+}) {
   const topScore = chunks[0]?.score ?? 0;
   const confidence = Number(topScore.toFixed(4));
+  const coverage = Number(queryCoverage(question, chunks).toFixed(4));
 
   // Not enough signal → refuse rather than hallucinate.
-  if (chunks.length === 0 || topScore < threshold) {
-    return { answer: REFUSAL, grounded: false, confidence, citations: [], gated: true };
+  if (chunks.length === 0 || topScore < threshold || coverage < minCoverage) {
+    return { answer: REFUSAL, grounded: false, confidence, coverage, citations: [], gated: true };
   }
 
   const context = chunks
@@ -101,6 +112,7 @@ export async function generateGroundedAnswer({ question, chunks, llm, threshold 
     answer,
     grounded,
     confidence,
+    coverage,
     citations: citeSource.map((n) => ({ marker: n, chunk: chunks[n - 1], filename: docNameOf(chunks[n - 1]) })),
     gated: false,
   };
