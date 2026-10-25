@@ -121,7 +121,7 @@ function validateSetting(key, value) {
         ? null
         : 'must be one of gemini|groq|openai|extractive';
     case 'embeddingProvider':
-      return ['local', 'gemini'].includes(value) ? null : 'must be "local" or "gemini"';
+      return ['local', 'minilm', 'gemini'].includes(value) ? null : 'must be "local", "minilm" or "gemini"';
     default:
       return 'unknown setting';
   }

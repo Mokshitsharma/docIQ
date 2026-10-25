@@ -2,6 +2,7 @@ import config from '../../config/index.js';
 import logger from '../../utils/logger.js';
 import { LocalEmbeddingProvider } from './local.js';
 import { GeminiEmbeddingProvider } from './gemini.js';
+import { MiniLMEmbeddingProvider } from './minilm.js';
 
 const cache = new Map();
 
@@ -20,6 +21,9 @@ export function getEmbeddingProvider(name = config.embeddingProvider) {
           apiKey: config.gemini.apiKey,
           model: config.gemini.embeddingModel,
         });
+        break;
+      case 'minilm':
+        provider = new MiniLMEmbeddingProvider();
         break;
       case 'local':
       default:
