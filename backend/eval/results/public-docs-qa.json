@@ -176,7 +176,8 @@
             0.0517
           ]
         }
-      }
+      },
+      "gate": null
     },
     {
       "name": "vector:local",
@@ -247,6 +248,11 @@
             0.1207
           ]
         }
+      },
+      "gate": {
+        "threshold": 0.15,
+        "minTopScore": 0.5994,
+        "refusedByGate": 0
       }
     },
     {
@@ -318,6 +324,11 @@
             0.0517
           ]
         }
+      },
+      "gate": {
+        "threshold": 0.15,
+        "minTopScore": 0.7154,
+        "refusedByGate": 0
       }
     },
     {
@@ -389,7 +400,8 @@
             0.0517
           ]
         }
-      }
+      },
+      "gate": null
     },
     {
       "name": "vector:minilm",
@@ -460,6 +472,11 @@
             0.0517
           ]
         }
+      },
+      "gate": {
+        "threshold": 0.15,
+        "minTopScore": 0.6387,
+        "refusedByGate": 0
       }
     },
     {
@@ -531,6 +548,11 @@
             0.0517
           ]
         }
+      },
+      "gate": {
+        "threshold": 0.15,
+        "minTopScore": 0.699,
+        "refusedByGate": 0
       }
     },
     {
@@ -602,7 +624,8 @@
             0.0517
           ]
         }
-      }
+      },
+      "gate": null
     }
   ],
   "comparisons": [
@@ -3784,6 +3807,6 @@
   "meta": {
     "generatedBy": "node eval/eval.js",
     "node": "v24.19.0",
-    "durationMs": 40245
+    "durationMs": 49376
   }
 }

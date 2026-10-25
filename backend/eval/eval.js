@@ -204,10 +204,17 @@ export async function runEval({ embedders = ['local', 'minilm'], llmName = 'extr
       const correct = c.answerable
         ? !refused && c.answers.some((a) => normalize(out.answer).includes(normalize(a)))
         : refused;
-      rows.push({ id: c.id, answerable: c.answerable, rank, refused, correct });
+      rows.push({ id: c.id, answerable: c.answerable, rank, refused, correct, topScore: out.confidence, gated: out.gated });
     }
-    perQuestion[name] = rows.map(({ answerable: _a, ...r }) => r);
-    runs.push({ name, ...summarize(rows) });
+    perQuestion[name] = rows.map(({ answerable: _a, topScore: _t, gated: _g, ...r }) => r);
+    runs.push({
+      name,
+      ...summarize(rows),
+      // How the confidence gate behaved: lowest top-1 score seen, and how many answers it blocked.
+      gate: retriever.gate
+        ? { threshold: THRESHOLD, minTopScore: Math.min(...rows.map((r) => r.topScore)), refusedByGate: rows.filter((r) => r.gated).length }
+        : null,
+    });
     log(`  ran ${name}`);
   };
 
