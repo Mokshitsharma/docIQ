@@ -1,0 +1,2 @@
+# Keep corpus snapshots byte-identical across platforms (sha256Text in SOURCES.json).
+* -text
