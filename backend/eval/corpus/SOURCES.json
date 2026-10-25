@@ -1,0 +1,72 @@
+[
+  {
+    "id": "far-52-212-4",
+    "title": "FAR 52.212-4 Contract Terms and Conditions—Commercial Products and Commercial Services",
+    "kind": "contract",
+    "publisher": "eCFR (48 CFR 52.212-4)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-48?part=52&section=52.212-4",
+    "format": "html",
+    "file": "far-52-212-4.txt",
+    "license": "Public domain in the United States: work of the U.S. Government (17 U.S.C. § 105).",
+    "retrieved": "2026-10-25",
+    "sha256Source": "020efef514dfb9c872875d55dd9159e7dca40c6abd795f6cbf4c4ee471af4a34",
+    "sha256Text": "745fbb7f11eda10f2196e3d04c94e68962832dc3adab8f4578bc10113818c2a3",
+    "words": 6004
+  },
+  {
+    "id": "far-52-232-25",
+    "title": "FAR 52.232-25 Prompt Payment",
+    "kind": "contract",
+    "publisher": "eCFR (48 CFR 52.232-25)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-48?part=52&section=52.232-25",
+    "format": "html",
+    "file": "far-52-232-25.txt",
+    "license": "Public domain in the United States: work of the U.S. Government (17 U.S.C. § 105).",
+    "retrieved": "2026-10-25",
+    "sha256Source": "f8d399b2e1ad9ed22da8ef114db121e1ea42de478af92e70e4275e01e320b9e8",
+    "sha256Text": "d81647496734fc1e1b465035e3b23d516ce591b2f1346b55ecf21720b3e901a3",
+    "words": 2101
+  },
+  {
+    "id": "hipaa-breach-notification",
+    "title": "HIPAA Breach Notification Rule — 45 CFR Part 164 Subpart D",
+    "kind": "policy",
+    "publisher": "eCFR (45 CFR 164.400–164.414)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-45?part=164&subpart=D",
+    "format": "html",
+    "file": "hipaa-breach-notification.txt",
+    "license": "Public domain in the United States: work of the U.S. Government (17 U.S.C. § 105).",
+    "retrieved": "2026-10-25",
+    "sha256Source": "72b400c60c9587c33910df930ffa588e1d75d82d68a6461b3573a1032243a8c0",
+    "sha256Text": "aa547062eee6b6ed47fc76bebed357f9010355052bffa2eba97f9c2ed2d130de",
+    "words": 2117
+  },
+  {
+    "id": "ethics-gifts",
+    "title": "Standards of Ethical Conduct — Gifts From Outside Sources (5 CFR Part 2635 Subpart B)",
+    "kind": "policy",
+    "publisher": "eCFR (5 CFR 2635.201–2635.206)",
+    "url": "https://www.ecfr.gov/api/renderer/v1/content/enhanced/current/title-5?part=2635&subpart=B",
+    "format": "html",
+    "file": "ethics-gifts.txt",
+    "license": "Public domain in the United States: work of the U.S. Government (17 U.S.C. § 105).",
+    "retrieved": "2026-10-25",
+    "sha256Source": "9ba0ad4cb64a3579ea6a701e233c4fc0f2a16e6b282df4bc60ff701e06b615f6",
+    "sha256Text": "c44685a46bc04c7c2ecbbace4c733c53e4eb04441496be77185e6bb217e7a130",
+    "words": 10833
+  },
+  {
+    "id": "nist-csf-2",
+    "title": "NIST Cybersecurity Framework (CSF) 2.0 — NIST CSWP 29",
+    "kind": "report",
+    "publisher": "National Institute of Standards and Technology",
+    "url": "https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.29.pdf",
+    "format": "pdf",
+    "file": "nist-csf-2.txt",
+    "license": "Public domain in the United States: work of the U.S. Government (17 U.S.C. § 105).",
+    "retrieved": "2026-10-25",
+    "sha256Source": "3c31f46fee98cac0c4323453e5109291a213b4de7fef8c058af9bf67f717433c",
+    "sha256Text": "daa698d8c0ced6c3b71c60261e69bd25867d7d505ba86154f461d7484874ece6",
+    "words": 9455
+  }
+]
