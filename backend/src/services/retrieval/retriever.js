@@ -22,7 +22,7 @@ export async function retrieve(question, {
   const store = getVectorStore();
 
   const [qVec] = await embedder.embed([question]);
-  const overFetch = strategy === 'hybrid' ? topK * 4 : topK;
+  const overFetch = strategy === 'hybrid' ? topK * HYBRID_OVERFETCH : topK;
   const hits = await store.query(qVec, {
     topK: overFetch,
     filter: { workspaceId: String(workspaceId) },
@@ -34,7 +34,7 @@ export async function retrieve(question, {
   const chunks = await Chunk.find({ _id: { $in: chunkIds } }).lean();
   const byId = new Map(chunks.map((c) => [String(c._id), c]));
 
-  let scored = hits
+  const candidates = hits
     .map((h) => {
       const chunk = byId.get(String(h.metadata?.chunkId));
       if (!chunk) return null;
@@ -42,29 +42,41 @@ export async function retrieve(question, {
     })
     .filter(Boolean);
 
-  if (strategy === 'hybrid') {
-    const kwScores = keywordScores(question, scored.map((s) => s.chunk));
-    scored = scored.map((s, i) => ({
-      ...s,
-      score: 0.7 * s.vectorScore + 0.3 * kwScores[i],
-    }));
-  } else {
-    scored = scored.map((s) => ({ ...s, score: s.vectorScore }));
-  }
-
-  scored.sort((a, b) => b.score - a.score);
-  return scored.slice(0, topK).map((s) => ({
+  return rankCandidates(question, candidates, { strategy, topK }).map((s) => ({
     ...s.chunk,
     score: Number(s.score.toFixed(4)),
   }));
 }
 
-function clamp01(x) {
+/**
+ * Pure ranking step shared by the API and the offline eval.
+ * `candidates` are `{ chunk: { text }, vectorScore }` from the vector store
+ * (already over-fetched for hybrid). Returns the top-k with a `score` field.
+ */
+export function rankCandidates(question, candidates, { strategy = 'vector', topK = 5 } = {}) {
+  let scored;
+  if (strategy === 'hybrid') {
+    const kwScores = keywordScores(question, candidates.map((s) => s.chunk));
+    scored = candidates.map((s, i) => ({
+      ...s,
+      score: HYBRID_WEIGHTS.vector * s.vectorScore + HYBRID_WEIGHTS.keyword * kwScores[i],
+    }));
+  } else {
+    scored = candidates.map((s) => ({ ...s, score: s.vectorScore }));
+  }
+  scored.sort((a, b) => b.score - a.score);
+  return scored.slice(0, topK);
+}
+
+export const HYBRID_WEIGHTS = { vector: 0.7, keyword: 0.3 };
+export const HYBRID_OVERFETCH = 4;
+
+export function clamp01(x) {
   return Math.max(0, Math.min(1, x));
 }
 
 /** BM25-lite: idf-weighted term frequency, normalised to [0,1] across the candidate set. */
-function keywordScores(question, chunks) {
+export function keywordScores(question, chunks) {
   const qTerms = tokenize(question);
   if (qTerms.length === 0) return chunks.map(() => 0);
 
