@@ -8,8 +8,15 @@ export function notFound(req, res) {
 export function errorHandler(err, req, res, next) {
   const status = err.status || err.statusCode || 500;
   if (status >= 500) logger.error(err.stack || err.message);
+  if (err.retryAfterSec) res.set('Retry-After', String(err.retryAfterSec));
+  if (err.code === 'LIMIT_FILE_SIZE') return res.status(413).json({ error: 'File too large', code: 'too_large' });
+  if (err.name === 'MulterError') return res.status(400).json({ error: err.message, code: err.code });
+  if (err.type === 'entity.too.large') return res.status(413).json({ error: 'Request body too large' });
+  if (err.type === 'entity.parse.failed') return res.status(400).json({ error: 'Malformed JSON body' });
   res.status(status).json({
-    error: err.message || 'Internal server error',
+    // Never leak internals (stack, driver messages) on 5xx.
+    error: status >= 500 ? 'Internal server error' : err.message || 'Request failed',
+    ...(typeof err.code === 'string' && status < 500 ? { code: err.code } : {}),
     ...(err.details ? { details: err.details } : {}),
   });
 }

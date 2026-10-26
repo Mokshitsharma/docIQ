@@ -17,8 +17,18 @@ const queryLogSchema = new mongoose.Schema(
     citations: { type: mongoose.Schema.Types.Mixed, default: [] },
     llmProvider: String,
     latencyMs: Number,
+    cached: { type: Boolean, default: false },
+    costUsd: { type: Number, default: 0 },
+    // Optional user feedback (POST /api/query/:queryId/feedback).
+    feedback: {
+      rating: { type: String, enum: ['up', 'down'] },
+      comment: { type: String, maxlength: 1000 },
+      at: Date,
+    },
   },
   { timestamps: true }
 );
+
+queryLogSchema.index({ workspaceId: 1, createdAt: -1 });
 
 export default mongoose.model('QueryLog', queryLogSchema);

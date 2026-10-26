@@ -1,6 +1,7 @@
 import Chunk from '../../models/Chunk.js';
 import { getEmbeddingProvider } from '../embedding/index.js';
 import { getVectorStore } from './vectorStore.js';
+import { withEmbeddingCache } from '../cache/index.js';
 
 /**
  * Retrieve the most relevant chunks for a question within a workspace.
@@ -18,7 +19,7 @@ export async function retrieve(question, {
   strategy = 'vector',
   embeddingProvider,
 } = {}) {
-  const embedder = getEmbeddingProvider(embeddingProvider);
+  const embedder = withEmbeddingCache(getEmbeddingProvider(embeddingProvider));
   const store = getVectorStore();
 
   const [qVec] = await embedder.embed([question]);
@@ -31,7 +32,8 @@ export async function retrieve(question, {
   if (hits.length === 0) return [];
 
   const chunkIds = hits.map((h) => h.metadata?.chunkId).filter(Boolean);
-  const chunks = await Chunk.find({ _id: { $in: chunkIds } }).lean();
+  // Defence in depth: the vector-store filter scopes by tenant, and so does this lookup.
+  const chunks = await Chunk.find({ _id: { $in: chunkIds }, workspaceId }).lean();
   const byId = new Map(chunks.map((c) => [String(c._id), c]));
 
   const candidates = hits
