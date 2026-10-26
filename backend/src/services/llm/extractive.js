@@ -53,6 +53,8 @@ export class ExtractiveProvider extends LLMProvider {
       const head = rawLine.match(/^\s*\[(\d+)\]\s*(?:\([^)]*\)\s*)?(.*)$/);
       if (head) {
         blocks.push({ marker: Number(head[1]), text: head[2].trim() });
+      } else if (/^\s*<\/?untrusted_documents>/.test(rawLine)) {
+        continue; // data-block delimiters, not passage text
       } else if (blocks.length && rawLine.trim() && !/^\s*(Context|Question|Answer)\b/.test(rawLine)) {
         blocks[blocks.length - 1].text += ' ' + rawLine.trim();
       }
