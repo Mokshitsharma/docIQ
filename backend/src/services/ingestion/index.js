@@ -1,4 +1,3 @@
-import fs from 'node:fs/promises';
 import Document from '../../models/Document.js';
 import Chunk from '../../models/Chunk.js';
 import Workspace from '../../models/Workspace.js';
@@ -8,6 +7,8 @@ import { chunkPages } from './chunker.js';
 import { getEmbeddingProvider } from '../embedding/index.js';
 import { getVectorStore } from '../retrieval/vectorStore.js';
 import { extractRisks } from '../risk/extractor.js';
+import { getStorage } from '../storage/index.js';
+import { withEmbeddingCache } from '../cache/index.js';
 
 /**
  * Full ingestion pipeline for one document:
@@ -27,7 +28,7 @@ export async function ingestDocument(documentId) {
     await Document.updateOne({ _id: doc._id }, { status: 'processing', error: null });
 
     // 1. Parse
-    const { pages, pageCount, ocrUsed } = await parseDocument(doc.storedPath, doc.fileType);
+    const { pages, pageCount, ocrUsed } = await parseDocument(await getStorage().get(doc.storedPath), doc.fileType);
     const totalText = pages.reduce((n, p) => n + p.text.length, 0);
     if (totalText === 0) throw new Error('No extractable text (scanned PDF? OCR not enabled in MVP)');
 
@@ -39,7 +40,7 @@ export async function ingestDocument(documentId) {
     if (chunks.length === 0) throw new Error('Chunking produced 0 chunks');
 
     // 3. Embed
-    const embedder = getEmbeddingProvider(settings.embeddingProvider);
+    const embedder = withEmbeddingCache(getEmbeddingProvider(settings.embeddingProvider));
     const vectors = await embedder.embed(chunks.map((c) => c.text));
 
     // 4. Clear any previous ingestion of this doc, then persist chunks
@@ -97,6 +98,7 @@ export async function ingestDocument(documentId) {
         error: null,
       }
     );
+    await Workspace.updateOne({ _id: doc.workspaceId }, { $inc: { contentVersion: 1 } }); // invalidate cached answers
 
     logger.info(`Ingested ${doc.filename}: ${chunkDocs.length} chunks, ${pageCount} pages`);
     return { chunkCount: chunkDocs.length, pageCount };
@@ -113,7 +115,7 @@ export async function deleteDocument(documentId) {
   if (!doc) return;
   await getVectorStore().deleteByFilter({ documentId: String(doc._id) });
   await Chunk.deleteMany({ documentId: doc._id });
-  await fs.unlink(doc.storedPath).catch(() => {});
+  await getStorage().remove(doc.storedPath).catch(() => {});
   await Document.deleteOne({ _id: doc._id });
 }
 
