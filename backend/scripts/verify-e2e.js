@@ -61,6 +61,7 @@ async function main() {
       body: JSON.stringify({ name: 'E2E Legal' }),
     });
     const ws = await r.json();
+    const K = { 'x-workspace-key': ws.accessKey };
     ok(r.status === 201 && ws._id, 'POST /api/workspaces', ws._id);
     ok(ws.settings && ws.settings.chunkSize > 0, 'workspace has default settings', JSON.stringify(ws.settings));
 
@@ -69,7 +70,7 @@ async function main() {
     //      the admin-panel knob the spec calls for)
     r = await fetch(`${BASE}/api/workspaces/${ws._id}/settings`, {
       method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...K },
       body: JSON.stringify({ chunkSize: 300, chunkOverlap: 60 }),
     });
     const tuned = await r.json();
@@ -80,7 +81,7 @@ async function main() {
     const fd = new FormData();
     fd.append('workspaceId', ws._id);
     fd.append('file', new Blob([fileBuf], { type: 'text/plain' }), 'sample-msa.txt');
-    r = await fetch(`${BASE}/api/documents/upload`, { method: 'POST', body: fd });
+    r = await fetch(`${BASE}/api/documents/upload`, { method: 'POST', body: fd, headers: K });
     const up = await r.json();
     ok(r.status === 202 && up.document?._id, 'POST /api/documents/upload', `ingestion=${up.ingestion}`);
     const docId = up.document._id;
@@ -90,7 +91,7 @@ async function main() {
     let statusBody;
     for (let i = 0; i < 40 && status === 'processing'; i++) {
       await sleep(250);
-      statusBody = await (await fetch(`${BASE}/api/documents/${docId}/status`)).json();
+      statusBody = await (await fetch(`${BASE}/api/documents/${docId}/status`, { headers: K })).json();
       status = statusBody.status;
     }
     ok(
@@ -100,7 +101,7 @@ async function main() {
     );
 
     // 5. risks
-    r = await fetch(`${BASE}/api/documents/${docId}/risks`);
+    r = await fetch(`${BASE}/api/documents/${docId}/risks`, { headers: K });
     const risks = await r.json();
     const riskItems = risks.risks?.items || [];
     ok(r.status === 200 && riskItems.length === 5, 'GET /api/documents/:id/risks', `${riskItems.length} clause cards`);
@@ -113,7 +114,7 @@ async function main() {
     // 6. grounded query
     r = await fetch(`${BASE}/api/query`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...K },
       body: JSON.stringify({ workspaceId: ws._id, question: 'What is the monthly fee and when are invoices due?' }),
     });
     const ans = await r.json();
@@ -129,7 +130,7 @@ async function main() {
     // 7. out-of-scope query should refuse
     r = await fetch(`${BASE}/api/query`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...K },
       body: JSON.stringify({ workspaceId: ws._id, question: 'What is the employee stock option vesting schedule at SpaceX?' }),
     });
     const refuse = await r.json();
@@ -142,7 +143,7 @@ async function main() {
     // 8. dynamic settings update
     r = await fetch(`${BASE}/api/workspaces/${ws._id}/settings`, {
       method: 'PATCH',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...K },
       body: JSON.stringify({ topK: 8, retrievalStrategy: 'hybrid', confidenceThreshold: 0.05, bogusKey: 1 }),
     });
     const patched = await r.json();
@@ -156,7 +157,7 @@ async function main() {
     // 9. re-query under hybrid strategy
     r = await fetch(`${BASE}/api/query`, {
       method: 'POST',
-      headers: { 'content-type': 'application/json' },
+      headers: { 'content-type': 'application/json', ...K },
       body: JSON.stringify({ workspaceId: ws._id, question: 'How many days notice to terminate for convenience?' }),
     });
     const hy = await r.json();
@@ -167,7 +168,7 @@ async function main() {
     );
 
     // 10. history
-    r = await fetch(`${BASE}/api/workspaces/${ws._id}/history`);
+    r = await fetch(`${BASE}/api/workspaces/${ws._id}/history`, { headers: K });
     const hist = await r.json();
     ok(
       r.status === 200 && hist.length === 3 && hist[0].latencyMs >= 0,

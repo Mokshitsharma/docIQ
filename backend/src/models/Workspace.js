@@ -26,6 +26,12 @@ const workspaceSchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true },
     ownerId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     settings: { type: settingsSchema, default: () => ({}) },
+    // sha256 of the workspace access key (the key itself is returned once, on create). Never selected by default.
+    accessKeyHash: { type: String, select: false },
+    // Bumped on every ingest/delete/settings change; part of the answer-cache key.
+    contentVersion: { type: Number, default: 0 },
+    // Public demo workspace (seeded): readable/queryable with its published demo key.
+    isDemo: { type: Boolean, default: false },
   },
   { timestamps: true }
 );

@@ -5,6 +5,8 @@ import Workspace from '../models/Workspace.js';
 import Document from '../models/Document.js';
 import { ingestDocument } from '../services/ingestion/index.js';
 import logger from '../utils/logger.js';
+import config from './index.js';
+import { hashKey } from '../middleware/workspaceAuth.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURE = path.resolve(__dirname, '../../eval/fixtures/sample-msa.txt');
@@ -25,8 +27,12 @@ export async function seedDemo() {
         name: DEMO_WORKSPACE_NAME,
         // smaller chunks suit this short contract better than the 800-token default
         settings: { chunkSize: 300, chunkOverlap: 60, retrievalStrategy: 'hybrid' },
+        isDemo: true,
+        accessKeyHash: hashKey(config.demoWorkspaceKey),
       });
       logger.info(`seed: created workspace "${DEMO_WORKSPACE_NAME}"`);
+    } else {
+      await Workspace.updateOne({ _id: ws._id }, { isDemo: true, accessKeyHash: hashKey(config.demoWorkspaceKey) });
     }
 
     const existing = await Document.findOne({ workspaceId: ws._id, filename: 'sample-msa.txt' });

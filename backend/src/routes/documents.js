@@ -1,81 +1,96 @@
-import fs from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { Router } from 'express';
 import mongoose from 'mongoose';
 import multer from 'multer';
 import Document from '../models/Document.js';
 import Chunk from '../models/Chunk.js';
 import Workspace from '../models/Workspace.js';
+import config from '../config/index.js';
 import { asyncH } from '../middleware/error.js';
-import { detectFileType } from '../services/ingestion/parser.js';
+import { authorizeWorkspace } from '../middleware/workspaceAuth.js';
+import { validateUpload } from '../services/ingestion/fileGuard.js';
+import { getStorage, newObjectKey } from '../services/storage/index.js';
 import { enqueueIngestion } from '../queues/ingestionQueue.js';
 import { deleteDocument } from '../services/ingestion/index.js';
+import { uploadLimiter } from '../middleware/rateLimit.js';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const UPLOAD_DIR = path.resolve(__dirname, '../../uploads');
-fs.mkdirSync(UPLOAD_DIR, { recursive: true });
-
-const storage = multer.diskStorage({
-  destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
-  filename: (_req, file, cb) => {
-    const safe = file.originalname.replace(/[^\w.\-]+/g, '_').slice(-120);
-    cb(null, `${Date.now()}_${Math.random().toString(36).slice(2, 8)}_${safe}`);
-  },
-});
+// Memory storage: bytes are sniffed and bomb-checked before anything is written anywhere.
 const upload = multer({
-  storage,
-  limits: { fileSize: 25 * 1024 * 1024 }, // 25 MB
-  fileFilter: (_req, file, cb) => {
-    const ok = detectFileType(file.originalname);
-    cb(ok ? null : new Error('Unsupported file type (pdf, docx, txt, md only)'), !!ok);
-  },
+  storage: multer.memoryStorage(),
+  limits: { fileSize: config.uploads.maxBytes, files: 1, fields: 5, fieldSize: 1024, parts: 8 },
 });
 
 const router = Router();
 const badId = (id) => !mongoose.isValidObjectId(id);
+const notFound = (what) => Object.assign(new Error(`${what} not found`), { status: 404 });
+
+/** Load a row by id and check the caller holds the key of the workspace that owns it. 404 otherwise. */
+async function loadOwned(req, Model, id, select) {
+  if (badId(id)) throw Object.assign(new Error('invalid id'), { status: 400 });
+  const query = Model.findById(id);
+  if (select) query.select(select);
+  const row = await query.lean();
+  if (!row) throw notFound(Model.modelName.toLowerCase());
+  try {
+    req.workspace = await authorizeWorkspace(req, row.workspaceId);
+  } catch (err) {
+    if (err.status === 401) throw err;
+    throw notFound(Model.modelName.toLowerCase()); // never confirm another tenant's id exists
+  }
+  return row;
+}
+
+const readOnlyDemo = (ws) => ws.isDemo && config.workspaceAuth;
 
 // POST /api/documents/upload   (multipart: file, workspaceId)
 router.post(
   '/upload',
+  uploadLimiter,
   upload.single('file'),
   asyncH(async (req, res) => {
     const { workspaceId } = req.body || {};
     if (!req.file) return res.status(400).json({ error: 'file is required' });
-    if (badId(workspaceId)) {
-      fs.unlink(req.file.path, () => {});
-      return res.status(400).json({ error: 'valid workspaceId is required' });
-    }
-    const ws = await Workspace.findById(workspaceId);
-    if (!ws) {
-      fs.unlink(req.file.path, () => {});
-      return res.status(404).json({ error: 'workspace not found' });
+    const ws = await authorizeWorkspace(req, workspaceId);
+    if (readOnlyDemo(ws)) return res.status(403).json({ error: 'demo workspace is read-only' });
+
+    const count = await Document.countDocuments({ workspaceId: ws._id });
+    if (count >= config.quotas.maxDocsPerWorkspace) {
+      res.set('Retry-After', '86400');
+      return res.status(429).json({ error: `document quota reached (${config.quotas.maxDocsPerWorkspace})`, code: 'quota_documents' });
     }
 
+    const { fileType, filename } = await validateUpload(req.file);
+    const storedPath = await getStorage().put(newObjectKey(ws._id, fileType), req.file.buffer, fileType);
+
     const doc = await Document.create({
-      workspaceId,
-      filename: req.file.originalname,
-      storedPath: req.file.path,
-      fileType: detectFileType(req.file.originalname),
+      workspaceId: ws._id,
+      filename,
+      storedPath,
+      fileType,
       sizeBytes: req.file.size,
       status: 'processing',
     });
 
-    const { mode } = await enqueueIngestion(doc._id);
-    res.status(202).json({ document: doc, ingestion: mode });
+    let mode;
+    try {
+      ({ mode } = await enqueueIngestion(doc._id));
+    } catch (err) {
+      await Document.updateOne({ _id: doc._id }, { status: 'failed', error: err.message });
+      throw err;
+    }
+    res.status(202).json({ document: publicDoc(doc.toObject()), ingestion: mode });
   })
 );
 
-// GET /api/documents?workspaceId=
+// GET /api/documents?workspaceId=&limit=&before=
 router.get(
   '/',
   asyncH(async (req, res) => {
-    const q = {};
-    if (req.query.workspaceId && mongoose.isValidObjectId(req.query.workspaceId)) {
-      q.workspaceId = req.query.workspaceId;
-    }
-    const docs = await Document.find(q).sort({ createdAt: -1 }).lean();
-    res.json(docs);
+    const ws = await authorizeWorkspace(req, req.query.workspaceId);
+    const limit = Math.min(Math.max(Number.parseInt(req.query.limit, 10) || 100, 1), 200);
+    const q = { workspaceId: ws._id };
+    if (req.query.before && !Number.isNaN(Date.parse(req.query.before))) q.createdAt = { $lt: new Date(req.query.before) };
+    const docs = await Document.find(q).sort({ createdAt: -1 }).limit(limit).lean();
+    res.json(docs.map(publicDoc));
   })
 );
 
@@ -83,12 +98,8 @@ router.get(
 router.get(
   '/:id/status',
   asyncH(async (req, res) => {
-    if (badId(req.params.id)) return res.status(400).json({ error: 'invalid id' });
-    const doc = await Document.findById(req.params.id)
-      .select('filename status error pageCount chunkCount ocrUsed createdAt updatedAt')
-      .lean();
-    if (!doc) return res.status(404).json({ error: 'document not found' });
-    res.json(doc);
+    const doc = await loadOwned(req, Document, req.params.id, 'workspaceId filename status error pageCount chunkCount ocrUsed createdAt updatedAt');
+    res.json(publicDoc(doc));
   })
 );
 
@@ -96,9 +107,7 @@ router.get(
 router.get(
   '/:id/risks',
   asyncH(async (req, res) => {
-    if (badId(req.params.id)) return res.status(400).json({ error: 'invalid id' });
-    const doc = await Document.findById(req.params.id).select('filename status risks').lean();
-    if (!doc) return res.status(404).json({ error: 'document not found' });
+    const doc = await loadOwned(req, Document, req.params.id, 'workspaceId filename status risks');
     if (doc.status !== 'ready') {
       return res.status(409).json({ error: `document is "${doc.status}"`, status: doc.status });
     }
@@ -106,27 +115,37 @@ router.get(
   })
 );
 
+// GET /api/documents/:id/download — pre-signed S3 URL (s3) or the bytes (local)
+router.get(
+  '/:id/download',
+  asyncH(async (req, res) => {
+    const doc = await loadOwned(req, Document, req.params.id, 'workspaceId filename storedPath fileType');
+    const storage = getStorage();
+    const url = await storage.signedUrl(doc.storedPath, doc.filename);
+    if (url) return res.json({ url, expiresInSec: config.storage.signedUrlTtlSec });
+    const buf = await storage.get(doc.storedPath);
+    res.attachment(doc.filename).type('application/octet-stream').send(buf);
+  })
+);
+
 // GET /api/documents/:id/chunks/:ordinal  — source viewer
 router.get(
   '/:id/chunks/:ordinal',
   asyncH(async (req, res) => {
-    if (badId(req.params.id)) return res.status(400).json({ error: 'invalid id' });
-    const chunk = await Chunk.findOne({
-      documentId: req.params.id,
-      ordinal: Number(req.params.ordinal),
-    }).lean();
+    const doc = await loadOwned(req, Document, req.params.id, 'workspaceId');
+    const ordinal = Number.parseInt(req.params.ordinal, 10);
+    if (!Number.isInteger(ordinal) || ordinal < 0) return res.status(400).json({ error: 'invalid ordinal' });
+    const chunk = await Chunk.findOne({ documentId: doc._id, workspaceId: doc.workspaceId, ordinal }).lean();
     if (!chunk) return res.status(404).json({ error: 'chunk not found' });
     res.json(chunk);
   })
 );
 
-// GET /api/documents/:id/chunk-by-id/:chunkId  — source viewer (by id)
+// GET /api/documents/chunk/:chunkId  — source viewer (by id)
 router.get(
   '/chunk/:chunkId',
   asyncH(async (req, res) => {
-    if (badId(req.params.chunkId)) return res.status(400).json({ error: 'invalid id' });
-    const chunk = await Chunk.findById(req.params.chunkId).lean();
-    if (!chunk) return res.status(404).json({ error: 'chunk not found' });
+    const chunk = await loadOwned(req, Chunk, req.params.chunkId);
     res.json(chunk);
   })
 );
@@ -135,10 +154,18 @@ router.get(
 router.delete(
   '/:id',
   asyncH(async (req, res) => {
-    if (badId(req.params.id)) return res.status(400).json({ error: 'invalid id' });
-    await deleteDocument(req.params.id);
+    const doc = await loadOwned(req, Document, req.params.id, 'workspaceId');
+    if (readOnlyDemo(req.workspace)) return res.status(403).json({ error: 'demo workspace is read-only' });
+    await deleteDocument(doc._id);
+    await Workspace.updateOne({ _id: doc.workspaceId }, { $inc: { contentVersion: 1 } });
     res.status(204).end();
   })
 );
+
+/** storedPath is internal (a server path or bucket key); never return it. */
+function publicDoc(d) {
+  const { storedPath: _s, ...rest } = d;
+  return rest;
+}
 
 export default router;
