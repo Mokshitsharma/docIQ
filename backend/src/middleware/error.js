@@ -6,6 +6,10 @@ export function notFound(req, res) {
 
 // eslint-disable-next-line no-unused-vars
 export function errorHandler(err, req, res, next) {
+  // Multipart parser (busboy) errors are client errors, not 500s.
+  if (!err.status && /^(Malformed (part header|urlencoded form)|Unexpected end of (form|multipart data)|Multipart: Boundary not found)/i.test(err.message || '')) {
+    err.status = 400;
+  }
   const status = err.status || err.statusCode || 500;
   if (status >= 500) logger.error(err.stack || err.message);
   if (err.retryAfterSec) res.set('Retry-After', String(err.retryAfterSec));

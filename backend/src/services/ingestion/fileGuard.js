@@ -26,7 +26,7 @@ const WINDOWS_RESERVED = /^(con|prn|aux|nul|com\d|lpt\d)(\..*)?$/i;
 export function sanitizeFilename(name) {
   let base = String(name ?? '')
     .normalize('NFKC')
-    .split(/[\/]/)
+    .split(/[\\/]/)
     .pop()
     // eslint-disable-next-line no-control-regex
     .replace(/[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁦-⁩]/g, '')
