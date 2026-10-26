@@ -122,7 +122,7 @@ test('unknown route → 404 JSON; malformed JSON → 400', async () => {
 
 test('sanitizeFilename unit: traversal, reserved names, bidi, length', async () => {
   const { sanitizeFilename } = await import('../src/services/ingestion/fileGuard.js');
-  assert.equal(sanitizeFilename('..\..\windows\system32\evil.txt'), 'evil.txt');
+  assert.equal(sanitizeFilename(String.raw`..\..\windows\system32\evil.txt`), 'evil.txt');
   assert.equal(sanitizeFilename('../../etc/passwd'), 'passwd');
   assert.equal(sanitizeFilename('CON.txt'), '_CON.txt');
   assert.doesNotMatch(sanitizeFilename('inv‮oice.txt'), /‮/);
