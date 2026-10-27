@@ -1,0 +1,12 @@
+{
+  "description": "Retrieval-regression floors on the hand-written TEST split (and the SYNTHETIC test split). The eval is deterministic (fixed corpus, seeds, no LLM), so the floors equal the values recorded in run 20261027-113008-dryrun / the committed results; any drop fails `npm test` (test/regression.test.js) and `npm run eval`. Lower a floor only with an explained, reviewed change.",
+  "floors": {
+    "test/vector:local/hit@5": 0.8621,
+    "test/hybrid:local/hit@5": 0.931,
+    "test/bm25/hit@5": 0.9828,
+    "test/vector:local/refusal_accuracy": 0.6923,
+    "test/hybrid:local/refusal_accuracy": 0.7692,
+    "syn-test/vector:local/hit@5": 0.58,
+    "syn-test/hybrid:local/hit@5": 0.8067
+  }
+}

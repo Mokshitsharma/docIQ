@@ -200,11 +200,15 @@ export async function runEval({
   const runs = [];
   const perQuestion = {};
   const rowsByRun = {};
+  // Per-question detail for the results/ layout (answer text, citations, latency); not written to the legacy JSON.
+  const detailsByRun = {};
   const answerable = new Map(cases.map((c) => [c.id, c.answerable]));
 
   const evaluate = async (name, retriever, embedder) => {
     const rows = [];
+    const details = [];
     for (const c of cases) {
+      const t0 = process.hrtime.bigint();
       const qVec = embedder ? (await embedder.embed([c.question]))[0] : null;
       const ranked = await retriever.run(c.question, qVec);
       const rank = c.answerable ? firstRelevantRank(ranked.map((r) => isRelevant(r.chunk, c))) : null;
@@ -219,8 +223,18 @@ export async function runEval({
       const correct = c.answerable
         ? !refused && c.answers.some((a) => normalize(out.answer).includes(normalize(a)))
         : refused;
+      const latencyMs = Number(process.hrtime.bigint() - t0) / 1e6;
       rows.push({ id: c.id, answerable: c.answerable, rank, refused, correct, coverage: out.coverage, topScore: out.confidence, gated: out.gated });
+      details.push({
+        id: c.id,
+        answer: out.answer,
+        retrieved: ranked.map((r) => ({ docId: r.chunk.docId, idx: r.chunk.idx, relevant: c.answerable ? isRelevant(r.chunk, c) : false })),
+        cited: out.citations.map((ct) => ({ docId: ct.chunk.docId, idx: ct.chunk.idx, text: ct.chunk.text, relevant: c.answerable ? isRelevant(ct.chunk, c) : false })),
+        usage: out.usage || null,
+        latencyMs,
+      });
     }
+    detailsByRun[name] = details;
     perQuestion[name] = rows.map(({ answerable: _a, topScore: _t, gated: _g, ...r }) => r);
     rowsByRun[name] = rows;
     runs.push({
@@ -323,6 +337,7 @@ export async function runEval({
     comparisons,
     perQuestion,
     rowsByRun,
+    detailsByRun,
   };
 }
 
@@ -359,6 +374,7 @@ async function main() {
   console.log('\nDocIQ eval — public-docs-qa');
   const results = await runEval({ embedders, llmName, log: console.log });
   delete results.rowsByRun;
+  delete results.detailsByRun;
   results.meta = { generatedBy: 'node eval/eval.js', node: process.version, durationMs: Date.now() - t0 };
 
   const d = results.dataset;
