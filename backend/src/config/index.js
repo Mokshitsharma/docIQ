@@ -36,6 +36,7 @@ export const config = {
     maxCompressionRatio: num(process.env.UPLOAD_MAX_COMPRESSION_RATIO, 100),
     maxTextChars: num(process.env.UPLOAD_MAX_TEXT_CHARS, 5_000_000),
     parseTimeoutMs: num(process.env.UPLOAD_PARSE_TIMEOUT_MS, 60_000),
+    parseMaxHeapMb: num(process.env.UPLOAD_PARSE_MAX_HEAP_MB, 512),
   },
 
   storage: {
