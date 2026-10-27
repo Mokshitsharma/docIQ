@@ -12,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const FIXTURE_MSA = path.resolve(__dirname, '../eval/fixtures/sample-msa.txt');
 
 export async function startApp(env = {}) {
-  const mongod = await MongoMemoryServer.create();
+  const mongod = await MongoMemoryServer.create({ instance: { launchTimeout: 120000 } });
   Object.assign(process.env, {
     NODE_ENV: 'test',
     LOG_LEVEL: 'error',
