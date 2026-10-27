@@ -1,0 +1,90 @@
+{
+  "run_id": "20261027-150736-eval",
+  "project": "docIQ",
+  "started_at": "2026-10-27T15:07:36.521Z",
+  "finished_at": "2026-10-27T15:11:01.310Z",
+  "git_sha": "6e7686f7d0fc140f0f6e93a815780c2a844d5d26",
+  "git_dirty": true,
+  "config_hash": "f9292c25e1e73af3595227f58a95d60245edf832f04c6665484e7bf3c0972abc",
+  "dataset_hash": "5d956556c16d089917071aa99645328af48933c9398af6b9d18612e735a12cb7",
+  "datasets": {
+    "test": {
+      "path": "backend/eval/datasets/public-docs-qa.json",
+      "label": "hand-written test split",
+      "questions": 71
+    },
+    "syn-test": {
+      "path": "backend/eval/datasets/synthetic-test.json",
+      "label": "SYNTHETIC test split",
+      "questions": 300
+    },
+    "dev": {
+      "path": "backend/eval/datasets/dev-qa.json",
+      "label": "hand-written dev split",
+      "questions": 24
+    },
+    "syn-dev": {
+      "path": "backend/eval/datasets/synthetic-dev.json",
+      "label": "SYNTHETIC dev split",
+      "questions": 270
+    }
+  },
+  "seed": 1234,
+  "language": "node v24.19.0",
+  "libraries": {
+    "dociq-backend": "0.1.0",
+    "@huggingface/transformers": "3.7.5",
+    "mongoose": "8.24.4"
+  },
+  "llm": "extractive",
+  "command": "cd backend && npm run eval",
+  "config": {
+    "chunking": {
+      "chunkSize": 800,
+      "chunkOverlap": 100,
+      "chunks": 79,
+      "note": "app defaults (DEFAULT_CHUNK_SIZE/OVERLAP)"
+    },
+    "topK": 5,
+    "ks": [
+      1,
+      3,
+      5
+    ],
+    "llm": "extractive",
+    "confidenceThreshold": {
+      "value": 0.15,
+      "appliedTo": [
+        "vector",
+        "hybrid"
+      ],
+      "note": "bm25 and hybrid-rrf scores are not on the app 0-1 scale, so no score gate; refusal comes from the answer step only"
+    },
+    "hybrid": {
+      "overFetch": "4x topK",
+      "weights": {
+        "vector": 0.7,
+        "keyword": 0.3
+      },
+      "keyword": "BM25-lite over the over-fetched candidates"
+    },
+    "rrf": {
+      "k": 60
+    },
+    "bm25": {
+      "k1": 1.2,
+      "b": 0.75
+    },
+    "embedders": [
+      "local",
+      "minilm"
+    ],
+    "bootstrap": {
+      "resamples": 10000,
+      "seed": 1234,
+      "alpha": 0.05
+    },
+    "answerScoring": "case/whitespace-insensitive substring match of a gold answer string in a non-refusal answer",
+    "minCoverage": 0.3
+  }
+}

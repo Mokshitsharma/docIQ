@@ -1,0 +1,1796 @@
+{
+  "metrics": {
+    "test/bm25/hit@1": {
+      "value": 0.7931,
+      "ci_low": 0.6897,
+      "ci_high": 0.8966,
+      "n": 58
+    },
+    "test/bm25/hit@5": {
+      "value": 0.9828,
+      "ci_low": 0.9483,
+      "ci_high": 1,
+      "n": 58
+    },
+    "test/bm25/mrr@5": {
+      "value": 0.8793,
+      "ci_low": 0.8147,
+      "ci_high": 0.9397,
+      "n": 58
+    },
+    "test/bm25/answer_accuracy": {
+      "value": 0.6379,
+      "ci_low": 0.5172,
+      "ci_high": 0.7586,
+      "n": 58
+    },
+    "test/bm25/citation_accuracy": {
+      "value": 0.9216,
+      "ci_low": 0.8431,
+      "ci_high": 0.9804,
+      "n": 51
+    },
+    "test/bm25/citation_precision": {
+      "value": 0.6242,
+      "ci_low": 0.5425,
+      "ci_high": 0.7092,
+      "n": 51
+    },
+    "test/bm25/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 54
+    },
+    "test/bm25/latency_p50_ms": {
+      "value": 6.473,
+      "ci_low": 5.564,
+      "ci_high": 7.269,
+      "n": 71
+    },
+    "test/bm25/latency_p95_ms": {
+      "value": 10.695,
+      "ci_low": 9.151,
+      "ci_high": 12.053,
+      "n": 71
+    },
+    "test/bm25/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/bm25/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.161,
+      "ci_low": 0.1394,
+      "ci_high": 0.1815,
+      "n": 71
+    },
+    "test/bm25/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2664,
+      "ci_low": 0.2303,
+      "ci_high": 0.3002,
+      "n": 71
+    },
+    "test/bm25/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5329,
+      "ci_low": 0.4607,
+      "ci_high": 0.6005,
+      "n": 71
+    },
+    "test/bm25/refusal_accuracy": {
+      "value": 0.7692,
+      "ci_low": 0.5385,
+      "ci_high": 1,
+      "n": 13,
+      "exact_ci": [
+        0.4619,
+        0.9496
+      ]
+    },
+    "test/bm25/overall_accuracy": {
+      "value": 0.662,
+      "ci_low": 0.5493,
+      "ci_high": 0.7746,
+      "n": 71
+    },
+    "test/vector:local/hit@1": {
+      "value": 0.5517,
+      "ci_low": 0.431,
+      "ci_high": 0.6897,
+      "n": 58
+    },
+    "test/vector:local/hit@5": {
+      "value": 0.8621,
+      "ci_low": 0.7759,
+      "ci_high": 0.9483,
+      "n": 58
+    },
+    "test/vector:local/mrr@5": {
+      "value": 0.6721,
+      "ci_low": 0.5698,
+      "ci_high": 0.7718,
+      "n": 58
+    },
+    "test/vector:local/answer_accuracy": {
+      "value": 0.6207,
+      "ci_low": 0.5,
+      "ci_high": 0.7414,
+      "n": 58
+    },
+    "test/vector:local/citation_accuracy": {
+      "value": 0.8627,
+      "ci_low": 0.7647,
+      "ci_high": 0.9412,
+      "n": 51
+    },
+    "test/vector:local/citation_precision": {
+      "value": 0.5915,
+      "ci_low": 0.5033,
+      "ci_high": 0.6797,
+      "n": 51
+    },
+    "test/vector:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 55
+    },
+    "test/vector:local/latency_p50_ms": {
+      "value": 6.93,
+      "ci_low": 6.172,
+      "ci_high": 7.344,
+      "n": 71
+    },
+    "test/vector:local/latency_p95_ms": {
+      "value": 9.785,
+      "ci_low": 9.041,
+      "ci_high": 11.637,
+      "n": 71
+    },
+    "test/vector:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/vector:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1647,
+      "ci_low": 0.1431,
+      "ci_high": 0.1842,
+      "n": 71
+    },
+    "test/vector:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2727,
+      "ci_low": 0.2366,
+      "ci_high": 0.3052,
+      "n": 71
+    },
+    "test/vector:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5454,
+      "ci_low": 0.4732,
+      "ci_high": 0.6104,
+      "n": 71
+    },
+    "test/vector:local/refusal_accuracy": {
+      "value": 0.6923,
+      "ci_low": 0.4615,
+      "ci_high": 0.9231,
+      "n": 13,
+      "exact_ci": [
+        0.3857,
+        0.9091
+      ]
+    },
+    "test/vector:local/overall_accuracy": {
+      "value": 0.6338,
+      "ci_low": 0.5211,
+      "ci_high": 0.7465,
+      "n": 71
+    },
+    "test/hybrid:local/hit@1": {
+      "value": 0.7414,
+      "ci_low": 0.6207,
+      "ci_high": 0.8448,
+      "n": 58
+    },
+    "test/hybrid:local/hit@5": {
+      "value": 0.931,
+      "ci_low": 0.8621,
+      "ci_high": 0.9828,
+      "n": 58
+    },
+    "test/hybrid:local/mrr@5": {
+      "value": 0.8261,
+      "ci_low": 0.7428,
+      "ci_high": 0.9037,
+      "n": 58
+    },
+    "test/hybrid:local/answer_accuracy": {
+      "value": 0.6552,
+      "ci_low": 0.5345,
+      "ci_high": 0.7759,
+      "n": 58
+    },
+    "test/hybrid:local/citation_accuracy": {
+      "value": 0.902,
+      "ci_low": 0.8235,
+      "ci_high": 0.9804,
+      "n": 51
+    },
+    "test/hybrid:local/citation_precision": {
+      "value": 0.6634,
+      "ci_low": 0.5686,
+      "ci_high": 0.7549,
+      "n": 51
+    },
+    "test/hybrid:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 54
+    },
+    "test/hybrid:local/latency_p50_ms": {
+      "value": 16.573,
+      "ci_low": 15.725,
+      "ci_high": 17.652,
+      "n": 71
+    },
+    "test/hybrid:local/latency_p95_ms": {
+      "value": 32.742,
+      "ci_low": 27.722,
+      "ci_high": 36.249,
+      "n": 71
+    },
+    "test/hybrid:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/hybrid:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1626,
+      "ci_low": 0.1404,
+      "ci_high": 0.1829,
+      "n": 71
+    },
+    "test/hybrid:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2685,
+      "ci_low": 0.2316,
+      "ci_high": 0.302,
+      "n": 71
+    },
+    "test/hybrid:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.537,
+      "ci_low": 0.4631,
+      "ci_high": 0.604,
+      "n": 71
+    },
+    "test/hybrid:local/refusal_accuracy": {
+      "value": 0.7692,
+      "ci_low": 0.5385,
+      "ci_high": 1,
+      "n": 13,
+      "exact_ci": [
+        0.4619,
+        0.9496
+      ]
+    },
+    "test/hybrid:local/overall_accuracy": {
+      "value": 0.6761,
+      "ci_low": 0.5634,
+      "ci_high": 0.7887,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/hit@1": {
+      "value": 0.6379,
+      "ci_low": 0.5172,
+      "ci_high": 0.7586,
+      "n": 58
+    },
+    "test/hybrid-rrf:local/hit@5": {
+      "value": 0.9483,
+      "ci_low": 0.8793,
+      "ci_high": 1,
+      "n": 58
+    },
+    "test/hybrid-rrf:local/mrr@5": {
+      "value": 0.7701,
+      "ci_low": 0.6853,
+      "ci_high": 0.852,
+      "n": 58
+    },
+    "test/hybrid-rrf:local/answer_accuracy": {
+      "value": 0.6207,
+      "ci_low": 0.5,
+      "ci_high": 0.7414,
+      "n": 58
+    },
+    "test/hybrid-rrf:local/citation_accuracy": {
+      "value": 0.8824,
+      "ci_low": 0.7843,
+      "ci_high": 0.9608,
+      "n": 51
+    },
+    "test/hybrid-rrf:local/citation_precision": {
+      "value": 0.6013,
+      "ci_low": 0.5098,
+      "ci_high": 0.6896,
+      "n": 51
+    },
+    "test/hybrid-rrf:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 54
+    },
+    "test/hybrid-rrf:local/latency_p50_ms": {
+      "value": 6.279,
+      "ci_low": 5.755,
+      "ci_high": 6.637,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/latency_p95_ms": {
+      "value": 8.007,
+      "ci_low": 7.41,
+      "ci_high": 8.532,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1611,
+      "ci_low": 0.1391,
+      "ci_high": 0.1814,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2666,
+      "ci_low": 0.2301,
+      "ci_high": 0.3,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5331,
+      "ci_low": 0.4603,
+      "ci_high": 0.6,
+      "n": 71
+    },
+    "test/hybrid-rrf:local/refusal_accuracy": {
+      "value": 0.7692,
+      "ci_low": 0.5385,
+      "ci_high": 1,
+      "n": 13,
+      "exact_ci": [
+        0.4619,
+        0.9496
+      ]
+    },
+    "test/hybrid-rrf:local/overall_accuracy": {
+      "value": 0.6479,
+      "ci_low": 0.5352,
+      "ci_high": 0.7606,
+      "n": 71
+    },
+    "test/vector:minilm/hit@1": {
+      "value": 0.5345,
+      "ci_low": 0.4138,
+      "ci_high": 0.6724,
+      "n": 58
+    },
+    "test/vector:minilm/hit@5": {
+      "value": 0.931,
+      "ci_low": 0.8621,
+      "ci_high": 0.9828,
+      "n": 58
+    },
+    "test/vector:minilm/mrr@5": {
+      "value": 0.6736,
+      "ci_low": 0.5787,
+      "ci_high": 0.7681,
+      "n": 58
+    },
+    "test/vector:minilm/answer_accuracy": {
+      "value": 0.6207,
+      "ci_low": 0.5,
+      "ci_high": 0.7414,
+      "n": 58
+    },
+    "test/vector:minilm/citation_accuracy": {
+      "value": 0.9184,
+      "ci_low": 0.8367,
+      "ci_high": 0.9796,
+      "n": 49
+    },
+    "test/vector:minilm/citation_precision": {
+      "value": 0.6293,
+      "ci_low": 0.5408,
+      "ci_high": 0.7177,
+      "n": 49
+    },
+    "test/vector:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 53
+    },
+    "test/vector:minilm/latency_p50_ms": {
+      "value": 24.417,
+      "ci_low": 22.722,
+      "ci_high": 26.883,
+      "n": 71
+    },
+    "test/vector:minilm/latency_p95_ms": {
+      "value": 70.677,
+      "ci_low": 46.476,
+      "ci_high": 77.978,
+      "n": 71
+    },
+    "test/vector:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/vector:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1561,
+      "ci_low": 0.1336,
+      "ci_high": 0.1765,
+      "n": 71
+    },
+    "test/vector:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2592,
+      "ci_low": 0.2217,
+      "ci_high": 0.2934,
+      "n": 71
+    },
+    "test/vector:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5185,
+      "ci_low": 0.4435,
+      "ci_high": 0.5867,
+      "n": 71
+    },
+    "test/vector:minilm/refusal_accuracy": {
+      "value": 0.6923,
+      "ci_low": 0.4615,
+      "ci_high": 0.9231,
+      "n": 13,
+      "exact_ci": [
+        0.3857,
+        0.9091
+      ]
+    },
+    "test/vector:minilm/overall_accuracy": {
+      "value": 0.6338,
+      "ci_low": 0.5211,
+      "ci_high": 0.7465,
+      "n": 71
+    },
+    "test/hybrid:minilm/hit@1": {
+      "value": 0.7414,
+      "ci_low": 0.6207,
+      "ci_high": 0.8448,
+      "n": 58
+    },
+    "test/hybrid:minilm/hit@5": {
+      "value": 0.9655,
+      "ci_low": 0.9138,
+      "ci_high": 1,
+      "n": 58
+    },
+    "test/hybrid:minilm/mrr@5": {
+      "value": 0.8425,
+      "ci_low": 0.7684,
+      "ci_high": 0.9109,
+      "n": 58
+    },
+    "test/hybrid:minilm/answer_accuracy": {
+      "value": 0.6552,
+      "ci_low": 0.5345,
+      "ci_high": 0.7759,
+      "n": 58
+    },
+    "test/hybrid:minilm/citation_accuracy": {
+      "value": 0.9216,
+      "ci_low": 0.8431,
+      "ci_high": 0.9804,
+      "n": 51
+    },
+    "test/hybrid:minilm/citation_precision": {
+      "value": 0.6634,
+      "ci_low": 0.5752,
+      "ci_high": 0.7516,
+      "n": 51
+    },
+    "test/hybrid:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 55
+    },
+    "test/hybrid:minilm/latency_p50_ms": {
+      "value": 31.196,
+      "ci_low": 29.71,
+      "ci_high": 32.112,
+      "n": 71
+    },
+    "test/hybrid:minilm/latency_p95_ms": {
+      "value": 65.329,
+      "ci_low": 47.177,
+      "ci_high": 81.987,
+      "n": 71
+    },
+    "test/hybrid:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/hybrid:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1637,
+      "ci_low": 0.1424,
+      "ci_high": 0.1839,
+      "n": 71
+    },
+    "test/hybrid:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2707,
+      "ci_low": 0.2353,
+      "ci_high": 0.3037,
+      "n": 71
+    },
+    "test/hybrid:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5413,
+      "ci_low": 0.4705,
+      "ci_high": 0.6074,
+      "n": 71
+    },
+    "test/hybrid:minilm/refusal_accuracy": {
+      "value": 0.6923,
+      "ci_low": 0.4615,
+      "ci_high": 0.9231,
+      "n": 13,
+      "exact_ci": [
+        0.3857,
+        0.9091
+      ]
+    },
+    "test/hybrid:minilm/overall_accuracy": {
+      "value": 0.662,
+      "ci_low": 0.5493,
+      "ci_high": 0.7746,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/hit@1": {
+      "value": 0.6897,
+      "ci_low": 0.569,
+      "ci_high": 0.8103,
+      "n": 58
+    },
+    "test/hybrid-rrf:minilm/hit@5": {
+      "value": 0.9655,
+      "ci_low": 0.9138,
+      "ci_high": 1,
+      "n": 58
+    },
+    "test/hybrid-rrf:minilm/mrr@5": {
+      "value": 0.8075,
+      "ci_low": 0.7284,
+      "ci_high": 0.8836,
+      "n": 58
+    },
+    "test/hybrid-rrf:minilm/answer_accuracy": {
+      "value": 0.6207,
+      "ci_low": 0.5,
+      "ci_high": 0.7414,
+      "n": 58
+    },
+    "test/hybrid-rrf:minilm/citation_accuracy": {
+      "value": 0.92,
+      "ci_low": 0.84,
+      "ci_high": 0.98,
+      "n": 50
+    },
+    "test/hybrid-rrf:minilm/citation_precision": {
+      "value": 0.6333,
+      "ci_low": 0.5467,
+      "ci_high": 0.7233,
+      "n": 50
+    },
+    "test/hybrid-rrf:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 53
+    },
+    "test/hybrid-rrf:minilm/latency_p50_ms": {
+      "value": 21.922,
+      "ci_low": 20.613,
+      "ci_high": 23.297,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/latency_p95_ms": {
+      "value": 29.787,
+      "ci_low": 27.709,
+      "ci_high": 60.078,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1566,
+      "ci_low": 0.1347,
+      "ci_high": 0.1773,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2594,
+      "ci_low": 0.2229,
+      "ci_high": 0.2935,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.5188,
+      "ci_low": 0.4459,
+      "ci_high": 0.587,
+      "n": 71
+    },
+    "test/hybrid-rrf:minilm/refusal_accuracy": {
+      "value": 0.7692,
+      "ci_low": 0.5385,
+      "ci_high": 1,
+      "n": 13,
+      "exact_ci": [
+        0.4619,
+        0.9496
+      ]
+    },
+    "test/hybrid-rrf:minilm/overall_accuracy": {
+      "value": 0.6479,
+      "ci_low": 0.5352,
+      "ci_high": 0.7606,
+      "n": 71
+    },
+    "syn-test/bm25/hit@1": {
+      "value": 0.8533,
+      "ci_low": 0.8133,
+      "ci_high": 0.8933,
+      "n": 300
+    },
+    "syn-test/bm25/hit@5": {
+      "value": 0.98,
+      "ci_low": 0.9633,
+      "ci_high": 0.9933,
+      "n": 300
+    },
+    "syn-test/bm25/mrr@5": {
+      "value": 0.9058,
+      "ci_low": 0.879,
+      "ci_high": 0.9318,
+      "n": 300
+    },
+    "syn-test/bm25/answer_accuracy": {
+      "value": 0.6567,
+      "ci_low": 0.6033,
+      "ci_high": 0.71,
+      "n": 300
+    },
+    "syn-test/bm25/citation_accuracy": {
+      "value": 0.9902,
+      "ci_low": 0.9755,
+      "ci_high": 1,
+      "n": 204
+    },
+    "syn-test/bm25/citation_precision": {
+      "value": 0.6209,
+      "ci_low": 0.585,
+      "ci_high": 0.6585,
+      "n": 204
+    },
+    "syn-test/bm25/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 204
+    },
+    "syn-test/bm25/latency_p50_ms": {
+      "value": 7.109,
+      "ci_low": 6.911,
+      "ci_high": 7.293,
+      "n": 300
+    },
+    "syn-test/bm25/latency_p95_ms": {
+      "value": 10.84,
+      "ci_low": 10.04,
+      "ci_high": 11.395,
+      "n": 300
+    },
+    "syn-test/bm25/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/bm25/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1456,
+      "ci_low": 0.1341,
+      "ci_high": 0.1567,
+      "n": 300
+    },
+    "syn-test/bm25/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2395,
+      "ci_low": 0.2204,
+      "ci_high": 0.258,
+      "n": 300
+    },
+    "syn-test/bm25/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.479,
+      "ci_low": 0.4408,
+      "ci_high": 0.5159,
+      "n": 300
+    },
+    "syn-test/vector:local/hit@1": {
+      "value": 0.2733,
+      "ci_low": 0.2233,
+      "ci_high": 0.3233,
+      "n": 300
+    },
+    "syn-test/vector:local/hit@5": {
+      "value": 0.58,
+      "ci_low": 0.5233,
+      "ci_high": 0.6333,
+      "n": 300
+    },
+    "syn-test/vector:local/mrr@5": {
+      "value": 0.3887,
+      "ci_low": 0.3418,
+      "ci_high": 0.4354,
+      "n": 300
+    },
+    "syn-test/vector:local/answer_accuracy": {
+      "value": 0.4667,
+      "ci_low": 0.41,
+      "ci_high": 0.5233,
+      "n": 300
+    },
+    "syn-test/vector:local/citation_accuracy": {
+      "value": 0.8861,
+      "ci_low": 0.8354,
+      "ci_high": 0.9367,
+      "n": 158
+    },
+    "syn-test/vector:local/citation_precision": {
+      "value": 0.5897,
+      "ci_low": 0.539,
+      "ci_high": 0.6414,
+      "n": 158
+    },
+    "syn-test/vector:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 158
+    },
+    "syn-test/vector:local/latency_p50_ms": {
+      "value": 7.362,
+      "ci_low": 7.128,
+      "ci_high": 7.621,
+      "n": 300
+    },
+    "syn-test/vector:local/latency_p95_ms": {
+      "value": 10.485,
+      "ci_low": 10.17,
+      "ci_high": 11.393,
+      "n": 300
+    },
+    "syn-test/vector:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/vector:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1118,
+      "ci_low": 0.0997,
+      "ci_high": 0.1239,
+      "n": 300
+    },
+    "syn-test/vector:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.1847,
+      "ci_low": 0.1647,
+      "ci_high": 0.2048,
+      "n": 300
+    },
+    "syn-test/vector:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.3695,
+      "ci_low": 0.3293,
+      "ci_high": 0.4096,
+      "n": 300
+    },
+    "syn-test/hybrid:local/hit@1": {
+      "value": 0.6733,
+      "ci_low": 0.62,
+      "ci_high": 0.7267,
+      "n": 300
+    },
+    "syn-test/hybrid:local/hit@5": {
+      "value": 0.8067,
+      "ci_low": 0.76,
+      "ci_high": 0.85,
+      "n": 300
+    },
+    "syn-test/hybrid:local/mrr@5": {
+      "value": 0.7268,
+      "ci_low": 0.6803,
+      "ci_high": 0.772,
+      "n": 300
+    },
+    "syn-test/hybrid:local/answer_accuracy": {
+      "value": 0.56,
+      "ci_low": 0.5033,
+      "ci_high": 0.6167,
+      "n": 300
+    },
+    "syn-test/hybrid:local/citation_accuracy": {
+      "value": 0.9607,
+      "ci_low": 0.9326,
+      "ci_high": 0.9888,
+      "n": 178
+    },
+    "syn-test/hybrid:local/citation_precision": {
+      "value": 0.6255,
+      "ci_low": 0.5833,
+      "ci_high": 0.6676,
+      "n": 178
+    },
+    "syn-test/hybrid:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 178
+    },
+    "syn-test/hybrid:local/latency_p50_ms": {
+      "value": 12.287,
+      "ci_low": 11.921,
+      "ci_high": 12.572,
+      "n": 300
+    },
+    "syn-test/hybrid:local/latency_p95_ms": {
+      "value": 17.937,
+      "ci_low": 16.349,
+      "ci_high": 19.714,
+      "n": 300
+    },
+    "syn-test/hybrid:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/hybrid:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1275,
+      "ci_low": 0.1151,
+      "ci_high": 0.1393,
+      "n": 300
+    },
+    "syn-test/hybrid:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2094,
+      "ci_low": 0.189,
+      "ci_high": 0.2289,
+      "n": 300
+    },
+    "syn-test/hybrid:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.4188,
+      "ci_low": 0.378,
+      "ci_high": 0.4579,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/hit@1": {
+      "value": 0.53,
+      "ci_low": 0.4733,
+      "ci_high": 0.5867,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/hit@5": {
+      "value": 0.86,
+      "ci_low": 0.82,
+      "ci_high": 0.8967,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/mrr@5": {
+      "value": 0.6615,
+      "ci_low": 0.6169,
+      "ci_high": 0.7049,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/answer_accuracy": {
+      "value": 0.6,
+      "ci_low": 0.5433,
+      "ci_high": 0.6567,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/citation_accuracy": {
+      "value": 0.9531,
+      "ci_low": 0.9219,
+      "ci_high": 0.9792,
+      "n": 192
+    },
+    "syn-test/hybrid-rrf:local/citation_precision": {
+      "value": 0.6024,
+      "ci_low": 0.5625,
+      "ci_high": 0.6432,
+      "n": 192
+    },
+    "syn-test/hybrid-rrf:local/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 192
+    },
+    "syn-test/hybrid-rrf:local/latency_p50_ms": {
+      "value": 7.793,
+      "ci_low": 7.496,
+      "ci_high": 7.986,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/latency_p95_ms": {
+      "value": 18.936,
+      "ci_low": 15.038,
+      "ci_high": 23.321,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.135,
+      "ci_low": 0.1234,
+      "ci_high": 0.1463,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2223,
+      "ci_low": 0.2032,
+      "ci_high": 0.2411,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:local/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.4446,
+      "ci_low": 0.4064,
+      "ci_high": 0.4821,
+      "n": 300
+    },
+    "syn-test/vector:minilm/hit@1": {
+      "value": 0.2767,
+      "ci_low": 0.2267,
+      "ci_high": 0.33,
+      "n": 300
+    },
+    "syn-test/vector:minilm/hit@5": {
+      "value": 0.5967,
+      "ci_low": 0.5433,
+      "ci_high": 0.65,
+      "n": 300
+    },
+    "syn-test/vector:minilm/mrr@5": {
+      "value": 0.3912,
+      "ci_low": 0.3457,
+      "ci_high": 0.4384,
+      "n": 300
+    },
+    "syn-test/vector:minilm/answer_accuracy": {
+      "value": 0.43,
+      "ci_low": 0.3733,
+      "ci_high": 0.4867,
+      "n": 300
+    },
+    "syn-test/vector:minilm/citation_accuracy": {
+      "value": 0.911,
+      "ci_low": 0.863,
+      "ci_high": 0.9521,
+      "n": 146
+    },
+    "syn-test/vector:minilm/citation_precision": {
+      "value": 0.5696,
+      "ci_low": 0.5205,
+      "ci_high": 0.6164,
+      "n": 146
+    },
+    "syn-test/vector:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 146
+    },
+    "syn-test/vector:minilm/latency_p50_ms": {
+      "value": 15.774,
+      "ci_low": 15.574,
+      "ci_high": 16.065,
+      "n": 300
+    },
+    "syn-test/vector:minilm/latency_p95_ms": {
+      "value": 35.458,
+      "ci_low": 25.687,
+      "ci_high": 47.602,
+      "n": 300
+    },
+    "syn-test/vector:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/vector:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1024,
+      "ci_low": 0.0905,
+      "ci_high": 0.1142,
+      "n": 300
+    },
+    "syn-test/vector:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.1688,
+      "ci_low": 0.1491,
+      "ci_high": 0.1882,
+      "n": 300
+    },
+    "syn-test/vector:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.3376,
+      "ci_low": 0.2981,
+      "ci_high": 0.3764,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/hit@1": {
+      "value": 0.7167,
+      "ci_low": 0.6667,
+      "ci_high": 0.7667,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/hit@5": {
+      "value": 0.8167,
+      "ci_low": 0.7733,
+      "ci_high": 0.86,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/mrr@5": {
+      "value": 0.7589,
+      "ci_low": 0.7139,
+      "ci_high": 0.8034,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/answer_accuracy": {
+      "value": 0.5733,
+      "ci_low": 0.5167,
+      "ci_high": 0.63,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/citation_accuracy": {
+      "value": 0.9219,
+      "ci_low": 0.8802,
+      "ci_high": 0.9583,
+      "n": 192
+    },
+    "syn-test/hybrid:minilm/citation_precision": {
+      "value": 0.6233,
+      "ci_low": 0.579,
+      "ci_high": 0.6667,
+      "n": 192
+    },
+    "syn-test/hybrid:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 192
+    },
+    "syn-test/hybrid:minilm/latency_p50_ms": {
+      "value": 20.709,
+      "ci_low": 20.452,
+      "ci_high": 21.667,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/latency_p95_ms": {
+      "value": 49.05,
+      "ci_low": 40.812,
+      "ci_high": 59.177,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.137,
+      "ci_low": 0.1251,
+      "ci_high": 0.1485,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2254,
+      "ci_low": 0.2059,
+      "ci_high": 0.2444,
+      "n": 300
+    },
+    "syn-test/hybrid:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.4508,
+      "ci_low": 0.4117,
+      "ci_high": 0.4889,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/hit@1": {
+      "value": 0.54,
+      "ci_low": 0.4833,
+      "ci_high": 0.5967,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/hit@5": {
+      "value": 0.8733,
+      "ci_low": 0.8367,
+      "ci_high": 0.91,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/mrr@5": {
+      "value": 0.6619,
+      "ci_low": 0.6179,
+      "ci_high": 0.7069,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/answer_accuracy": {
+      "value": 0.6133,
+      "ci_low": 0.5567,
+      "ci_high": 0.67,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/citation_accuracy": {
+      "value": 0.9492,
+      "ci_low": 0.9188,
+      "ci_high": 0.9797,
+      "n": 197
+    },
+    "syn-test/hybrid-rrf:minilm/citation_precision": {
+      "value": 0.5812,
+      "ci_low": 0.5423,
+      "ci_high": 0.6193,
+      "n": 197
+    },
+    "syn-test/hybrid-rrf:minilm/faithfulness": {
+      "value": 1,
+      "ci_low": 1,
+      "ci_high": 1,
+      "n": 197
+    },
+    "syn-test/hybrid-rrf:minilm/latency_p50_ms": {
+      "value": 16.135,
+      "ci_low": 15.678,
+      "ci_high": 16.459,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/latency_p95_ms": {
+      "value": 39.051,
+      "ci_low": 29.127,
+      "ci_high": 42.258,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/cost_per_query_usd_extractive": {
+      "value": 0,
+      "ci_low": 0,
+      "ci_high": 0,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_groq": {
+      "value": 0.1371,
+      "ci_low": 0.1256,
+      "ci_high": 0.1484,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_gemini": {
+      "value": 0.2269,
+      "ci_low": 0.2079,
+      "ci_high": 0.2457,
+      "n": 300
+    },
+    "syn-test/hybrid-rrf:minilm/est_cost_per_1k_queries_usd_openai": {
+      "value": 0.4538,
+      "ci_low": 0.4157,
+      "ci_high": 0.4913,
+      "n": 300
+    }
+  },
+  "taxonomy": {
+    "test/bm25": {
+      "correct": 47,
+      "retrieval_miss": 1,
+      "wrong_refusal": 7,
+      "wrong_answer_despite_correct_retrieval": 13,
+      "generation_error": 3
+    },
+    "test/vector:local": {
+      "correct": 45,
+      "retrieval_miss": 8,
+      "wrong_refusal": 5,
+      "wrong_answer_despite_correct_retrieval": 9,
+      "generation_error": 4
+    },
+    "test/hybrid:local": {
+      "correct": 48,
+      "retrieval_miss": 4,
+      "wrong_refusal": 6,
+      "wrong_answer_despite_correct_retrieval": 10,
+      "generation_error": 3
+    },
+    "test/hybrid-rrf:local": {
+      "correct": 46,
+      "retrieval_miss": 3,
+      "wrong_refusal": 7,
+      "wrong_answer_despite_correct_retrieval": 12,
+      "generation_error": 3
+    },
+    "test/vector:minilm": {
+      "correct": 45,
+      "retrieval_miss": 3,
+      "wrong_refusal": 7,
+      "wrong_answer_despite_correct_retrieval": 12,
+      "generation_error": 4
+    },
+    "test/hybrid:minilm": {
+      "correct": 47,
+      "retrieval_miss": 2,
+      "wrong_refusal": 7,
+      "wrong_answer_despite_correct_retrieval": 11,
+      "generation_error": 4
+    },
+    "test/hybrid-rrf:minilm": {
+      "correct": 46,
+      "retrieval_miss": 2,
+      "wrong_refusal": 7,
+      "wrong_answer_despite_correct_retrieval": 13,
+      "generation_error": 3
+    },
+    "syn-test/bm25": {
+      "correct": 197,
+      "retrieval_miss": 6,
+      "wrong_refusal": 92,
+      "wrong_answer_despite_correct_retrieval": 5,
+      "generation_error": 0
+    },
+    "syn-test/vector:local": {
+      "correct": 140,
+      "retrieval_miss": 124,
+      "wrong_refusal": 34,
+      "wrong_answer_despite_correct_retrieval": 2,
+      "generation_error": 0
+    },
+    "syn-test/hybrid:local": {
+      "correct": 168,
+      "retrieval_miss": 58,
+      "wrong_refusal": 71,
+      "wrong_answer_despite_correct_retrieval": 3,
+      "generation_error": 0
+    },
+    "syn-test/hybrid-rrf:local": {
+      "correct": 180,
+      "retrieval_miss": 41,
+      "wrong_refusal": 75,
+      "wrong_answer_despite_correct_retrieval": 4,
+      "generation_error": 0
+    },
+    "syn-test/vector:minilm": {
+      "correct": 129,
+      "retrieval_miss": 121,
+      "wrong_refusal": 46,
+      "wrong_answer_despite_correct_retrieval": 4,
+      "generation_error": 0
+    },
+    "syn-test/hybrid:minilm": {
+      "correct": 172,
+      "retrieval_miss": 55,
+      "wrong_refusal": 68,
+      "wrong_answer_despite_correct_retrieval": 5,
+      "generation_error": 0
+    },
+    "syn-test/hybrid-rrf:minilm": {
+      "correct": 184,
+      "retrieval_miss": 37,
+      "wrong_refusal": 75,
+      "wrong_answer_despite_correct_retrieval": 4,
+      "generation_error": 0
+    }
+  },
+  "comparisons": [
+    {
+      "split": "test",
+      "a": "hybrid:local",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": 0.069,
+      "ci_low": 0,
+      "ci_high": 0.1552,
+      "mcnemar": {
+        "n": 58,
+        "b10": 5,
+        "b01": 1,
+        "discordant": 6,
+        "pValue": 0.21875
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:local",
+      "b": "vector:local",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0.0423,
+      "ci_low": -0.0282,
+      "ci_high": 0.1127,
+      "mcnemar": {
+        "n": 71,
+        "b10": 5,
+        "b01": 2,
+        "discordant": 7,
+        "pValue": 0.453125
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:local",
+      "b": "bm25",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": -0.0517,
+      "ci_low": -0.1207,
+      "ci_high": 0,
+      "mcnemar": {
+        "n": 58,
+        "b10": 0,
+        "b01": 3,
+        "discordant": 3,
+        "pValue": 0.25
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:local",
+      "b": "bm25",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0.0141,
+      "ci_low": -0.0423,
+      "ci_high": 0.0704,
+      "mcnemar": {
+        "n": 71,
+        "b10": 3,
+        "b01": 2,
+        "discordant": 5,
+        "pValue": 1
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid-rrf:local",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": 0.0862,
+      "ci_low": 0.0172,
+      "ci_high": 0.1552,
+      "mcnemar": {
+        "n": 58,
+        "b10": 5,
+        "b01": 0,
+        "discordant": 5,
+        "pValue": 0.0625
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid-rrf:local",
+      "b": "vector:local",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0.0141,
+      "ci_low": -0.0423,
+      "ci_high": 0.0845,
+      "mcnemar": {
+        "n": 71,
+        "b10": 3,
+        "b01": 2,
+        "discordant": 5,
+        "pValue": 1
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:minilm",
+      "b": "vector:minilm",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": 0.0345,
+      "ci_low": -0.0345,
+      "ci_high": 0.1034,
+      "mcnemar": {
+        "n": 58,
+        "b10": 3,
+        "b01": 1,
+        "discordant": 4,
+        "pValue": 0.625
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:minilm",
+      "b": "vector:minilm",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0.0282,
+      "ci_low": -0.0423,
+      "ci_high": 0.1127,
+      "mcnemar": {
+        "n": 71,
+        "b10": 5,
+        "b01": 3,
+        "discordant": 8,
+        "pValue": 0.726563
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:minilm",
+      "b": "bm25",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": -0.0172,
+      "ci_low": -0.069,
+      "ci_high": 0.0345,
+      "mcnemar": {
+        "n": 58,
+        "b10": 1,
+        "b01": 2,
+        "discordant": 3,
+        "pValue": 1
+      }
+    },
+    {
+      "split": "test",
+      "a": "hybrid:minilm",
+      "b": "bm25",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0,
+      "ci_low": -0.0563,
+      "ci_high": 0.0563,
+      "mcnemar": {
+        "n": 71,
+        "b10": 2,
+        "b01": 2,
+        "discordant": 4,
+        "pValue": 1
+      }
+    },
+    {
+      "split": "test",
+      "a": "vector:minilm",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 58,
+      "diff": 0.069,
+      "ci_low": -0.0172,
+      "ci_high": 0.1724,
+      "mcnemar": {
+        "n": 58,
+        "b10": 6,
+        "b01": 2,
+        "discordant": 8,
+        "pValue": 0.289062
+      }
+    },
+    {
+      "split": "test",
+      "a": "vector:minilm",
+      "b": "vector:local",
+      "metric": "overall_accuracy",
+      "n": 71,
+      "diff": 0,
+      "ci_low": -0.0986,
+      "ci_high": 0.0986,
+      "mcnemar": {
+        "n": 71,
+        "b10": 6,
+        "b01": 6,
+        "discordant": 12,
+        "pValue": 1
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:local",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": 0.2267,
+      "ci_low": 0.1767,
+      "ci_high": 0.2767,
+      "mcnemar": {
+        "n": 300,
+        "b10": 70,
+        "b01": 2,
+        "discordant": 72,
+        "pValue": 0
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:local",
+      "b": "vector:local",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": 0.0933,
+      "ci_low": 0.0367,
+      "ci_high": 0.15,
+      "mcnemar": {
+        "n": 300,
+        "b10": 51,
+        "b01": 23,
+        "discordant": 74,
+        "pValue": 0.001516
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:local",
+      "b": "bm25",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": -0.1733,
+      "ci_low": -0.22,
+      "ci_high": -0.13,
+      "mcnemar": {
+        "n": 300,
+        "b10": 1,
+        "b01": 53,
+        "discordant": 54,
+        "pValue": 0
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:local",
+      "b": "bm25",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": -0.0967,
+      "ci_low": -0.15,
+      "ci_high": -0.0433,
+      "mcnemar": {
+        "n": 300,
+        "b10": 21,
+        "b01": 50,
+        "discordant": 71,
+        "pValue": 0.000767
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid-rrf:local",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": 0.28,
+      "ci_low": 0.23,
+      "ci_high": 0.33,
+      "mcnemar": {
+        "n": 300,
+        "b10": 85,
+        "b01": 1,
+        "discordant": 86,
+        "pValue": 0
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid-rrf:local",
+      "b": "vector:local",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": 0.1333,
+      "ci_low": 0.0733,
+      "ci_high": 0.1933,
+      "mcnemar": {
+        "n": 300,
+        "b10": 64,
+        "b01": 24,
+        "discordant": 88,
+        "pValue": 0.000024
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:minilm",
+      "b": "vector:minilm",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": 0.22,
+      "ci_low": 0.17,
+      "ci_high": 0.27,
+      "mcnemar": {
+        "n": 300,
+        "b10": 70,
+        "b01": 4,
+        "discordant": 74,
+        "pValue": 0
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:minilm",
+      "b": "vector:minilm",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": 0.1433,
+      "ci_low": 0.0867,
+      "ci_high": 0.2,
+      "mcnemar": {
+        "n": 300,
+        "b10": 60,
+        "b01": 17,
+        "discordant": 77,
+        "pValue": 0.000001
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:minilm",
+      "b": "bm25",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": -0.1633,
+      "ci_low": -0.2067,
+      "ci_high": -0.1233,
+      "mcnemar": {
+        "n": 300,
+        "b10": 1,
+        "b01": 50,
+        "discordant": 51,
+        "pValue": 0
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "hybrid:minilm",
+      "b": "bm25",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": -0.0833,
+      "ci_low": -0.1334,
+      "ci_high": -0.03,
+      "mcnemar": {
+        "n": 300,
+        "b10": 20,
+        "b01": 45,
+        "discordant": 65,
+        "pValue": 0.002626
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "vector:minilm",
+      "b": "vector:local",
+      "metric": "hit@5",
+      "n": 300,
+      "diff": 0.0167,
+      "ci_low": -0.05,
+      "ci_high": 0.0867,
+      "mcnemar": {
+        "n": 300,
+        "b10": 59,
+        "b01": 54,
+        "discordant": 113,
+        "pValue": 0.706882
+      }
+    },
+    {
+      "split": "syn-test",
+      "a": "vector:minilm",
+      "b": "vector:local",
+      "metric": "answer_accuracy",
+      "n": 300,
+      "diff": -0.0367,
+      "ci_low": -0.1,
+      "ci_high": 0.0267,
+      "mcnemar": {
+        "n": 300,
+        "b10": 41,
+        "b01": 52,
+        "discordant": 93,
+        "pValue": 0.299732
+      }
+    }
+  ],
+  "power": {
+    "comparison": "hybrid:local vs vector:local, hit@5 (paired, exact McNemar), alpha=0.05 two-sided, power=0.80",
+    "target_delta": 0.05,
+    "discordance_rate_dev": 0.243,
+    "discordance_source": {
+      "dev-qa (answerable)": {
+        "n": 14,
+        "discordant": 5,
+        "rate": 0.35714285714285715
+      },
+      "synthetic-dev": {
+        "n": 270,
+        "discordant": 64,
+        "rate": 0.23703703703703705
+      }
+    },
+    "required_n": 761,
+    "achieved_n": {
+      "hand_written_test": 58,
+      "synthetic_test": 300
+    },
+    "reachable": {
+      "hand_written_test": false,
+      "synthetic_test": false
+    },
+    "detectable_delta_at_achieved_n": {
+      "hand_written_test": 0.1777,
+      "synthetic_test": 0.0794
+    },
+    "method": "Connor (1987) sample size for McNemar; discordance P(systems disagree) estimated on dev splits only"
+  },
+  "regression_gate": [
+    {
+      "key": "test/vector:local/hit@5",
+      "floor": 0.8621,
+      "value": 0.8621,
+      "pass": true
+    },
+    {
+      "key": "test/hybrid:local/hit@5",
+      "floor": 0.931,
+      "value": 0.931,
+      "pass": true
+    },
+    {
+      "key": "test/bm25/hit@5",
+      "floor": 0.9828,
+      "value": 0.9828,
+      "pass": true
+    },
+    {
+      "key": "test/vector:local/refusal_accuracy",
+      "floor": 0.6923,
+      "value": 0.6923,
+      "pass": true
+    },
+    {
+      "key": "test/hybrid:local/refusal_accuracy",
+      "floor": 0.7692,
+      "value": 0.7692,
+      "pass": true
+    },
+    {
+      "key": "syn-test/vector:local/hit@5",
+      "floor": 0.58,
+      "value": 0.58,
+      "pass": true
+    },
+    {
+      "key": "syn-test/hybrid:local/hit@5",
+      "floor": 0.8067,
+      "value": 0.8067,
+      "pass": true
+    }
+  ],
+  "not_produced": [
+    "LLM-generated answer accuracy (gemini/groq/openai): not run — no API key configured; answers come from the extractive (no-LLM) provider"
+  ]
+}
