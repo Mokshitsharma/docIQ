@@ -20,7 +20,7 @@ export function bm25Tokenize(text) {
     .replace(/[‘’]/g, "'")
     .replace(/[^a-z0-9$.\s-]/g, ' ')
     .split(/\s+/)
-    .map((w) => w.replace(/^[.\-]+|[.\-]+$/g, ''))
+    .map((w) => w.replace(/^[.-]+|[.-]+$/g, ''))
     .filter((w) => w.length > 1 && !STOPWORDS.has(w));
 }
 

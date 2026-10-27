@@ -34,7 +34,7 @@ class LocalStorage {
   }
 
   async put(key, buffer) {
-    const file = path.join(UPLOAD_DIR, key.replace(/[\/]/g, '_'));
+    const file = path.join(UPLOAD_DIR, key.replace(/[/]/g, '_'));
     await fs.mkdir(UPLOAD_DIR, { recursive: true });
     await fs.writeFile(file, buffer, { flag: 'wx' });
     return file;

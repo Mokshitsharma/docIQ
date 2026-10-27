@@ -29,7 +29,7 @@ export function sanitizeFilename(name) {
     .split(/[\\/]/)
     .pop()
     // eslint-disable-next-line no-control-regex
-    .replace(/[\u0000-\u001f\u007f-\u009f​-‏‪-‮⁦-⁩]/g, '')
+    .replace(/[\u0000-\u001f\u007f-\u009f\u200b-\u200f\u202a-\u202e\u2066-\u2069]/g, '')
     .replace(/[^\w.\-() ]+/g, '_')
     .replace(/\s+/g, ' ')
     .replace(/^[.\s]+/, '')
@@ -81,7 +81,6 @@ export async function inspectDocx(buf, limits = config.uploads) {
   }
   let total = 0;
   for (const e of entries) {
-    // eslint-disable-next-line no-underscore-dangle
     const size = e._data?.uncompressedSize ?? 0;
     if (size < 0) throw new UploadError('Corrupt .docx entry size', 400);
     total += size;

@@ -20,7 +20,7 @@ export const OPEN_TAG = '<untrusted_documents>';
 export const CLOSE_TAG = '</untrusted_documents>';
 
 // eslint-disable-next-line no-control-regex
-const INVISIBLE = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f­​-‏‪-‮⁠-⁤⁦-⁩﻿]/g;
+const INVISIBLE = /[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f\u00ad\u200b-\u200f\u202a-\u202e\u2060-\u2064\u2066-\u2069\ufeff]/g;
 const TAG_LIKE = /<\s*\/?\s*(untrusted_documents|system|assistant|user|instructions?|im_start|im_end)[^>]*>/gi;
 
 export function sanitizePassage(text) {
@@ -37,7 +37,7 @@ const RULES = [
   ['override-ml', /\b(ignora|ignorez|ignoriere|ignorare|ignore)\b[^.]{0,40}\b(instrucciones|instructions|anweisungen|istruzioni|instruções)\b/],
   ['role', /\b(you are now|from now on,? you|pretend (to be|you are)|roleplay as|act as (if you|an? (ai|assistant|chatbot|different|unrestricted))|enter (developer|dan|god) mode|jailbreak)\b/],
   ['prompt-leak', /\b(reveal|print|show|repeat|output|leak|disclose)\b[^.]{0,40}\b(system prompt|your (instructions|rules|prompt)|hidden (instructions|prompt)|initial prompt)\b/],
-  ['new-instructions', /\b(new|updated|additional|important|urgent) (system )?(instructions?|directive|rules?)\s*[:\-]/],
+  ['new-instructions', /\b(new|updated|additional|important|urgent) (system )?(instructions?|directive|rules?)\s*[:-]/],
   ['fake-role', /(^|\s)(\[\/?(system|inst)\]|<<\/?sys>>|#{2,}\s*(system|instruction)|(system|assistant)\s*:\s)/],
   ['exfil', /!\[[^\]]*\]\(\s*https?:\/\/|\b(send|post|upload|forward|exfiltrate)\b[^.]{0,60}\b(to|at)\b[^.]{0,20}(https?:\/\/|www\.|\S+@\S+\.\w+)/],
   ['answer-hijack', /\b(always|instead|regardless|whatever the question)\b[^.]{0,40}\b(respond|reply|answer|say|output|state)\b|\b(respond|reply|answer|say|output)\b[^.]{0,20}\b(only|exactly) (with )?["'“]/],

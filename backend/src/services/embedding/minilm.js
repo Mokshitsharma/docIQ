@@ -32,7 +32,8 @@ export class MiniLMEmbeddingProvider extends EmbeddingProvider {
       lib = await import('@huggingface/transformers');
     } catch (err) {
       throw new Error(
-        `minilm embeddings need the dev package @huggingface/transformers (npm install, without --omit=dev): ${err.message}`
+        `minilm embeddings need the dev package @huggingface/transformers (npm install, without --omit=dev): ${err.message}`,
+        { cause: err }
       );
     }
     this._extractor = await lib.pipeline('feature-extraction', this.model, { dtype: 'fp32' });
