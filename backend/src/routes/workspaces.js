@@ -117,6 +117,20 @@ router.get(
   })
 );
 
+// POST /api/workspaces/:id/rotate-key — rotate capability key
+router.post(
+  '/:id/rotate-key',
+  requireWorkspaceParam(),
+  asyncH(async (req, res) => {
+    if (req.workspace.isDemo && config.workspaceAuth) {
+      return res.status(403).json({ error: 'demo workspace key cannot be rotated' });
+    }
+    const newKey = generateKey();
+    await Workspace.updateOne({ _id: req.workspace._id }, { accessKeyHash: hashKey(newKey) });
+    res.json({ accessKey: newKey, message: 'key rotated successfully; previous key is invalidated' });
+  })
+);
+
 function validateSetting(key, value) {
   const intInRange = (min, max) =>
     Number.isInteger(value) && value >= min && value <= max
