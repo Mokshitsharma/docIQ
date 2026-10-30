@@ -49,7 +49,7 @@ export async function ingestDocument(documentId) {
     await Chunk.deleteMany({ documentId: doc._id });
 
     const chunkDocs = await Chunk.insertMany(
-      chunks.map((c) => ({
+      chunks.map((c, i) => ({
         documentId: doc._id,
         workspaceId: doc.workspaceId,
         ordinal: c.ordinal,
@@ -57,6 +57,7 @@ export async function ingestDocument(documentId) {
         pageNumber: c.pageNumber,
         tokenCount: c.tokenCount,
         embeddingId: `${doc._id}:${c.ordinal}`,
+        embedding: vectors[i],
         metadata: { embeddingProvider: embedder.name },
       }))
     );

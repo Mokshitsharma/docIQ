@@ -18,6 +18,7 @@ const chunkSchema = new mongoose.Schema(
     text: { type: String, required: true },
     pageNumber: { type: Number, default: 1 },
     embeddingId: { type: String, index: true }, // ref into the vector store
+    embedding: { type: [Number], select: false }, // kept so the in-memory store can be rebuilt on boot
     tokenCount: Number,
     metadata: { type: mongoose.Schema.Types.Mixed, default: {} },
   },

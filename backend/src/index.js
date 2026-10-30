@@ -16,7 +16,14 @@ import workspacesRouter from './routes/workspaces.js';
 import documentsRouter from './routes/documents.js';
 import queryRouter from './routes/query.js';
 
+export function assertValidConfig(cfg = config) {
+  if (cfg.env === 'production' && !cfg.workspaceAuth) {
+    throw new Error('Refusing to start: WORKSPACE_AUTH cannot be disabled in production (NODE_ENV=production)');
+  }
+}
+
 export function createApp() {
+  assertValidConfig(config);
   const app = express();
   app.disable('x-powered-by');
   if (config.trustProxy) app.set('trust proxy', config.trustProxy);
@@ -81,6 +88,10 @@ async function start() {
     logger.info(
       `providers: llm:${config.llmProvider} embed:${config.embeddingProvider} vector:${config.vectorStore} queue:${config.useQueue ? 'bullmq' : 'inline'} storage:${config.storage.driver}`
     );
+    if (config.vectorStore === 'memory') {
+      const { rehydrateVectorStore } = await import('./services/retrieval/rehydrate.js');
+      await rehydrateVectorStore().catch((err) => logger.error('vector store rehydrate failed:', err.message));
+    }
     if (config.seedDemo) {
       const { seedDemo } = await import('./config/seed.js');
       await seedDemo();

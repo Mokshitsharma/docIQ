@@ -1,3 +1,13 @@
+---
+title: DocIQ API
+emoji: 📄
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # DocIQ — AI Document Intelligence Platform
 
 Turn unstructured documents (contracts, invoices, compliance docs) into a
