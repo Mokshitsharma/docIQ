@@ -23,13 +23,16 @@ export default function Page() {
       setWorkspaces(list);
       setCurrent((c) => c || list[0]?._id || '');
     } catch (e) {
-      setError(`Backend unreachable: ${e.message}`);
+      setError(`Can't reach the docIQ server (${e.message}). If it was idle it may be waking up: reload in a minute.`);
     }
   };
 
   useEffect(() => {
     loadWorkspaces();
   }, []);
+
+  // Document and query calls carry the key of the open workspace.
+  api.use(current);
 
   const createWorkspace = async (name) => {
     const ws = await api.createWorkspace(name);
@@ -40,8 +43,8 @@ export default function Page() {
   return (
     <main>
       {error && (
-        <div className="mb-4 rounded-lg border border-rose-200 bg-rose-50 p-3 text-sm text-rose-700">
-          {error} — is the API running on :4000?
+        <div className="mb-4 rounded border border-brand-200 bg-brand-50 p-3 text-sm text-brand-700">
+          {error}
         </div>
       )}
 
@@ -52,13 +55,17 @@ export default function Page() {
         onCreate={createWorkspace}
       />
 
-      <div className="grid gap-4 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 [&>*]:min-w-0">
         <div className="space-y-4">
-          <div className="flex gap-2">
+          <div className="flex gap-5 border-b border-rule" role="tablist">
             {TABS.map((t) => (
               <button
                 key={t}
-                className={`btn ${tab === t ? 'bg-slate-800 text-white' : 'btn-ghost'}`}
+                role="tab"
+                aria-selected={tab === t}
+                className={`-mb-px border-b-2 pb-2 text-sm font-medium ${
+                  tab === t ? 'border-brand-600 text-ink' : 'border-transparent text-slate-500 hover:text-ink'
+                }`}
                 onClick={() => setTab(t)}
               >
                 {t}

@@ -41,38 +41,32 @@ export default function ChatPanel({ workspaceId }) {
 
   return (
     <div className="card flex h-[70vh] flex-col p-4">
-      <h2 className="mb-2 font-semibold">Ask your documents</h2>
+      <h2 className="mb-3 text-xl font-semibold">Ask your documents</h2>
 
       <div ref={scrollRef} className="flex-1 space-y-4 overflow-y-auto pr-1">
         {turns.length === 0 && (
-          <p className="text-sm text-slate-500">
-            Ask a natural-language question, or pick a recommended one below. Answers are grounded in
-            retrieved passages and cite their source page.
+          <p className="max-w-prose font-serif text-[15px] leading-relaxed text-slate-600">
+            Ask in plain words, or start with one of the questions below. Each answer is built only from
+            passages in your documents, and the marked numbers open the page they came from.
           </p>
         )}
         {turns.map((t, i) => (
-          <div key={i} className="space-y-2">
-            <div className="ml-auto max-w-[85%] rounded-lg bg-brand-600 px-3 py-2 text-sm text-white">
-              {t.question}
-            </div>
+          <article key={i} className="border-t border-rule pt-3 first:border-t-0 first:pt-0">
+            <h3 className="text-[17px] font-semibold leading-snug">{t.question}</h3>
             {t.result ? (
-              <div className="max-w-[92%] rounded-lg bg-slate-100 px-3 py-2 text-sm">
+              <div className="mt-1.5 font-serif text-[15px]">
                 <Answer result={t.result} onCite={setOpenCite} />
               </div>
             ) : (
-              <div className="max-w-[92%] animate-pulse rounded-lg bg-slate-100 px-3 py-2 text-sm text-slate-400">
-                Retrieving & reasoning…
-              </div>
+              <p className="mt-1.5 text-sm text-slate-500">Reading the documents…</p>
             )}
-          </div>
+          </article>
         ))}
       </div>
 
       {/* Recommended questions — always available, above the input */}
-      <div className="mt-3 border-t border-slate-100 pt-3">
-        <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-slate-400">
-          Recommended questions
-        </p>
+      <div className="mt-3 min-w-0 border-t border-rule pt-3">
+        <p className="mb-1.5 text-sm text-slate-600">Try one of these</p>
         <div className="flex gap-2 overflow-x-auto pb-1">
           {RECOMMENDED_QUESTIONS.map((rq) => (
             <button
@@ -80,7 +74,7 @@ export default function ChatPanel({ workspaceId }) {
               disabled={!workspaceId || busy}
               onClick={() => ask(rq)}
               title={rq}
-              className="shrink-0 whitespace-nowrap rounded-full border border-slate-300 bg-white px-3 py-1.5 text-xs text-slate-700 transition hover:border-brand-400 hover:bg-brand-50 disabled:opacity-50"
+              className="shrink-0 whitespace-nowrap rounded border border-rule bg-paper px-3 py-1.5 text-xs text-ink hover:border-brand-400 disabled:opacity-50"
             >
               {rq}
             </button>
@@ -123,7 +117,8 @@ function Answer({ result, onCite }) {
             return (
               <button
                 key={i}
-                className="mx-0.5 rounded bg-brand-100 px-1 text-xs font-semibold text-brand-700 hover:bg-brand-200"
+                className="cite"
+                aria-label={`Open source ${m[1]}`}
                 onClick={() => onCite(byMarker.get(m[1]))}
               >
                 {m[1]}
@@ -134,17 +129,13 @@ function Answer({ result, onCite }) {
         })}
       </p>
 
-      <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-slate-500">
-        <span
-          className={`rounded-full px-2 py-0.5 font-medium ${
-            result.grounded ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700'
-          }`}
-        >
-          {result.grounded ? 'grounded' : 'not grounded'}
+      <p className="mt-2 font-sans text-xs text-slate-500">
+        <span className={result.grounded ? 'font-medium text-emerald-700' : 'font-medium text-brand-600'}>
+          {result.grounded ? 'Backed by the documents' : 'Not found in the documents'}
         </span>
-        <span>confidence {Number(result.confidence ?? 0).toFixed(2)}</span>
-        {result.llmProvider && <span>· {result.llmProvider}</span>}
-      </div>
+        {', '}confidence {Number(result.confidence ?? 0).toFixed(2)}
+        {result.llmProvider === 'extractive' ? ', quoted from the text' : result.llmProvider && `, written by ${result.llmProvider}`}
+      </p>
 
       {cites.length > 0 && (
         <div className="mt-2 space-y-1">
@@ -152,10 +143,10 @@ function Answer({ result, onCite }) {
             <button
               key={c.chunkId}
               onClick={() => onCite(c)}
-              className="block w-full truncate rounded border border-slate-200 bg-white px-2 py-1 text-left text-xs hover:border-brand-300"
+              className="block w-full truncate rounded border border-rule bg-white px-2 py-1 text-left font-sans text-xs hover:border-ink/40"
             >
-              <span className="font-semibold text-brand-700">[{c.marker}]</span> {c.filename} · p.
-              {c.pageNumber} · sim {Number(c.score).toFixed(2)}
+              <span className="cite ml-0">{c.marker}</span> {c.filename}, page {c.pageNumber}
+              <span className="text-slate-500"> (match {Number(c.score).toFixed(2)})</span>
             </button>
           ))}
         </div>
@@ -167,7 +158,7 @@ function Answer({ result, onCite }) {
 function SourceViewer({ citation, onClose }) {
   return (
     <div
-      className="fixed inset-0 z-20 flex items-center justify-center bg-black/40 p-4"
+      className="fixed inset-0 z-20 flex items-center justify-center bg-ink/40 p-4"
       onClick={onClose}
     >
       <div
@@ -176,18 +167,18 @@ function SourceViewer({ citation, onClose }) {
       >
         <div className="mb-2 flex items-center justify-between">
           <h3 className="font-semibold">
-            {citation.filename} — page {citation.pageNumber}
+            {citation.filename}, page {citation.pageNumber}
           </h3>
-          <button className="text-slate-400 hover:text-slate-700" onClick={onClose}>
-            ✕
+          <button className="text-sm text-slate-500 hover:text-ink" onClick={onClose}>
+            Close
           </button>
         </div>
         <p className="text-xs text-slate-500">
-          citation [{citation.marker}] · similarity {Number(citation.score).toFixed(3)}
+          Source {citation.marker}, match {Number(citation.score).toFixed(3)}
         </p>
-        <div className="mt-3 whitespace-pre-wrap rounded-lg bg-slate-50 p-3 text-sm leading-relaxed">
+        <blockquote className="mt-3 whitespace-pre-wrap border-l-4 border-mark bg-paper p-3 font-serif text-[15px] leading-relaxed">
           {citation.excerpt}
-        </div>
+        </blockquote>
       </div>
     </div>
   );

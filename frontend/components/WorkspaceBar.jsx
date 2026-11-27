@@ -25,7 +25,7 @@ export default function WorkspaceBar({ workspaces, current, onSelect, onCreate }
         onChange={(e) => onSelect(e.target.value)}
       >
         <option value="" disabled>
-          Select a workspace…
+          Choose a workspace
         </option>
         {workspaces.map((w) => (
           <option key={w._id} value={w._id}>

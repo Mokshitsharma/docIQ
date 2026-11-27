@@ -75,7 +75,7 @@ export default function SettingsPanel({ workspaceId }) {
 
   return (
     <div className="card p-4">
-      <h2 className="mb-1 font-semibold">Admin settings</h2>
+      <h2 className="mb-1 text-xl font-semibold">Settings</h2>
       <p className="mb-3 text-xs text-slate-500">
         Dynamic config — applied on the next ingestion / query, no redeploy.
       </p>

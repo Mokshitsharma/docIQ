@@ -14,17 +14,16 @@ export default function HistoryPanel({ workspaceId, refreshKey }) {
 
   return (
     <div className="card p-4">
-      <h2 className="mb-2 font-semibold">Query history</h2>
-      {logs.length === 0 && <p className="text-sm text-slate-500">No queries yet.</p>}
-      <ul className="space-y-2">
+      <h2 className="mb-2 text-xl font-semibold">Past questions</h2>
+      {logs.length === 0 && <p className="text-sm text-slate-600">Questions you ask in this workspace show up here.</p>}
+      <ul className="divide-y divide-rule">
         {logs.map((l) => (
-          <li key={l._id} className="rounded-lg border border-slate-100 p-2 text-sm">
-            <p className="font-medium">{l.question}</p>
-            <p className="mt-0.5 line-clamp-2 text-slate-600">{l.answer}</p>
-            <p className="mt-1 text-xs text-slate-400">
-              {new Date(l.createdAt).toLocaleString()} · {l.grounded ? 'grounded' : 'ungrounded'} ·
-              conf {Number(l.confidence ?? 0).toFixed(2)} · {l.citedChunkIds?.length || 0} cites ·{' '}
-              {l.latencyMs}ms
+          <li key={l._id} className="py-2.5 text-sm">
+            <p className="font-serif font-semibold">{l.question}</p>
+            <p className="mt-0.5 line-clamp-2 font-serif text-slate-700">{l.answer}</p>
+            <p className="mt-1 text-xs text-slate-500">
+              {new Date(l.createdAt).toLocaleString()}. {l.grounded ? 'Backed by the documents' : 'Not found in the documents'},
+              {' '}{l.citedChunkIds?.length || 0} sources, confidence {Number(l.confidence ?? 0).toFixed(2)}, {l.latencyMs} ms
             </p>
           </li>
         ))}
